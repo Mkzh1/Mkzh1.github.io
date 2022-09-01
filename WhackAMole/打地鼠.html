@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .newEl>img {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        border: 5px solid #000;
+    }
+
+    .newEl {
+        /* width: 100%; */
+        /* height: 100vh; */
+        /* overflow: hidden; */
+        background-color: aquamarine;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .zhezhao {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.541);
+        content: "游戏结束";
+        font-size: 55px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        color: #fff;
+        top: 0;
+        left: 0;
+        display: none;
+    }
+</style>
+
+<body>
+    <div class="newEl"></div>
+    <div class="zhezhao">
+        <p>游戏结束<br>请点击页面刷新</p>
+
+    </div>
+</body>
+<script>
+    var x = 0;
+    function $(El) {
+        var Dom = document.querySelectorAll(El)
+        if (Dom.length == 0) {
+            return null
+        }
+        if (Dom.length == 1) {
+            return Dom[0]
+        }
+        return Dom
+    }
+
+    // $(".newEl").onclick = function(e){
+    //     // console.log(e.target,$(".newEl"))
+
+    // }
+    //生成亿个图片
+        var music = [1, 2, 3, 4]
+        var musicNum = 0;
+        var imgArr = [1, 2]
+        var Newimgtime = setInterval(function () {
+        var imgNum = Math.floor(Math.random() * imgArr.length)
+        var Newimg = document.createElement("img")
+        var randimgWidth = Math.floor(Math.random() * 150 + 50)
+        var randWidth = Math.floor(Math.random() * window.innerWidth)
+        var randHeight = Math.floor(Math.random() * window.innerHeight)
+
+        Newimg.src = "./image/" + imgArr[imgNum] + ".png"
+        Newimg.style.width = randimgWidth + "px"
+        Newimg.style.height = randimgWidth + "px"
+        if (randWidth < window.innerWidth - randimgWidth && randHeight < window.innerHeight - randimgWidth) {
+            Newimg.style.top = randHeight + "px"
+            Newimg.style.left = randWidth + "px"
+        }
+        $(".newEl").appendChild(Newimg)
+        // x++
+        // if (x >= 2) {
+        // clearInterval(Newimgtime)
+        // }
+    }, 500)
+
+    $(".newEl").addEventListener("click", function (e) {
+        // clearInterval(Newimgtime)
+        // console.log("点击", e, this);
+        if (e.target === this) {
+            $(".zhezhao").onclick = function () {
+                location.reload()
+            }
+            $(".zhezhao").style.display = "flex"
+            var newMusic = document.createElement("audio")
+            newMusic.src = "./kunkunmusic/off.mp3"
+            var unMusic = music.shift()
+            music.push(unMusic)
+            newMusic.play()
+            clearInterval(Newimgtime)
+        } else {
+            var newMusic = document.createElement("audio")
+            musicNum++
+            newMusic.src = "./kunkunmusic/ji" +music[musicNum] + ".mp3"
+            // music[musicNum] 
+            var unMusic = music.shift()
+            music.push(unMusic)
+            newMusic.play()
+            console.log(music);
+            $(".newEl").removeChild(e.target)
+        }
+    }, true)
+</script>
+
+</html>

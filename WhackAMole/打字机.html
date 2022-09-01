@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .newEl {
+            background-color: aquamarine;
+            width: 500px;
+            height: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        button {
+            border: 0;
+        }
+
+        .time,
+        .off,
+        .fraction,
+        .level {
+            width: 100px;
+            height: 100px;
+            background-color: aliceblue;
+            color: #000;
+            top: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+        }
+
+        .time {
+            right: 330px;
+        }
+
+        .off {
+            right: 220px;
+        }
+
+        .fraction {
+            right: 110px;
+        }
+
+        .level div,
+        .time div,
+        .off div,
+        .fraction div {
+            margin: 5px 0;
+        }
+
+        .region {
+            width: 500px;
+            height: 500px;
+            background-color: antiquewhite;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="newEl">
+        <div class="time">
+            <div>剩余时间</div>
+            <div class="lastTime"></div>
+        </div>
+        <button class="off">暂停</button>
+        <div class="fraction">
+            <div>分数</div>
+            <div>0</div>
+        </div>
+        <div class="level">
+            <div>当前等级</div>
+            <div>0</div>
+        </div>
+        <div class="region" onkeydown="mo()">
+        </div>
+        <input type="text" j>
+    </div>
+</body>
+<script>
+
+    var azStr = 'qwertyuiopasdfghjklzxcvbnm'
+    var azArr = azStr.split("")
+    function $(El) {
+        var Dom = document.querySelectorAll(El)
+        if (Dom.length == 0) {
+            return null
+        }
+        if (Dom.length == 1) {
+            return Dom[0]
+        }
+        return Dom
+    }
+
+    // function mo(){
+    //     console.log(event.target);
+    //     console.log(this);
+    // }
+    // setInterval(function () {
+    // var randNum = Math.round(Math.random()*azArr.length)
+    
+    var randNum = Math.floor(Math.random() * azArr.length)
+    // console.log(azArr[randNum]);
+    var NewEl = document.createElement("span")
+    var x = $(".region").offsetWidth
+    var y = $(".region").offsetHeight
+    window.addEventListener("keydown", function () {
+        console.log(event);
+    });
+    // if(){
+
+    // }
+    // console.log(x,y);
+    NewEl.innerHTML = azArr[randNum]
+    $(".region").appendChild(NewEl)
+        // onkeydown()
+    // }, 500)
+
+    //防抖：使定时器延迟执行
+    //节流：使定时器执行一次后等到一定时间才再次执行
+
+    //lodash
+
+        var obj = {
+            naem:"nkie",
+            age:17
+        }
+        //借用方法
+        // call()
+        //语法： call(对象，参数，参数)
+        //借用方法
+        //apply()
+        //语法： apply(对象，[参数，参数])
+        //bind()
+        //会绑定对象
+        //语法: 方法.bind(指定对象)
+
+        //call与apply的区别是
+        //bind与上面两者的区别是
+        //三者的区别是什么
+
+</script>
+
+</html>

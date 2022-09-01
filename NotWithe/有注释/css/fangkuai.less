@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.stage {
+    width: 100%;
+    height: 100vh;
+    max-width: 360px;
+    background-position: 100% 100%;
+    background-size: 100%;
+    background-image: url(../image/bg.png);
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .open{
+        position: absolute;
+        z-index: 1001;
+        width: 100%;
+        height: 100%;
+        background-image: url(../image/bg.png);
+        background-position: center;
+        background-size: 100% 100%;
+        transition: all .3s;
+        opacity: 1;
+        &>div{
+            background-image: url(../image/jingling.png);
+            // background-color: antiquewhite;
+            background-size: 550px;
+            position: absolute;
+        }
+        .title{
+            top: 50px;
+            left: 50%;
+            width: 228px;
+            height: 75px;
+            background-position: 0px 17px;
+            background-repeat: no-repeat;
+            transform: translateX(-50%);
+        }
+        .btn{
+            top: 50%;
+            left: 50%;
+            width: 210px;
+            height: 75px;
+            background-position: -228px 0px;
+            background-repeat: no-repeat;
+            transform: translate(-50%, -50%);
+        }
+        .gangqin{
+            width: 100%;
+            height: 90px;
+            background-position: 3px -168px;
+            bottom: 0;
+        }
+        
+    }
+    .zhushi{
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        transition: all .3s;
+        &::before{
+            width: 200px;
+            height: 175px;
+            position:absolute;
+            background-image: url(../image/jingling.png);
+            background-position: -370px -95px;
+            background-size: 571px;
+            content: '';
+            background-color: rgba(0, 0, 0, 0.295);
+            z-index: 999;
+        }
+        &::after{
+            position:absolute;
+            content: '';
+            width: 100%;
+            height:100%;
+            background-color: rgba(0, 0, 0, 0.444);
+            z-index: -1;
+        }
+    }
+    .chunk{
+        // background-color: rgba(255, 127, 127, 0.54);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        top: 10px;
+        .sorce{
+            display: flex;
+            pointer-events: none;
+            .num{
+                // position: absolute;
+                z-index: 9999;
+                width: 28px;
+                height:35px;
+                background-image: url(../image/bd46b88b-305d-4c09-a696-e5d01bbc9564.png);
+                background-size:280px auto;
+                background-position: 0;
+            }
+            .num0{ background-position: 0;}
+            .num1{ background-position:-28px;}
+            .num2{ background-position:-56px;}
+            .num3{ background-position:-84px;}
+            .num4{ background-position:-112px;}
+            .num5{ background-position:-140px;}
+            .num6{ background-position:-168px;}
+            .num7{ background-position:-196px;}
+            .num8{ background-position:-224px;}
+            .num9{ background-position:-252px;}
+        }
+        
+    }
+    // }/ .chunk .ChunkNum{/     position: absolute;
+    //     top: 0;
+    //     width: 100%;
+    //     z-index: 999;
+    //     // background-color: aquamarine;
+    //     text-align: center;
+    //     font-size: 40px;
+    //     color: rgb(255, 255, 255);
+    //     text-shadow: 0 0 40px rgb(0, 0, 0);
+    //     pointer-events: none;
+        
+    // }
+    .chunk i{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 90px;
+        height: 90px;
+        background-image: url(../image/jingling.png);
+        background-position:-180px 185px;
+        background-size: 545px;
+        // transition: all .5s ;
+    }
+    .chunk i.active{
+        background-image: url(../image/playing.png);
+        background-position: center;
+        background-size: 25%;
+        background-repeat: no-repeat;
+    }
+    .shade{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 0, 0, 0.503);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        display: none;
+        span{
+            // position: absolute;
+            width: 300px;
+            color: #fff;
+            text-align: center;
+            font-size: 55px;
+        }
+        button{
+            padding:10px 20px;
+            font-size: 20px;
+            color: #fff;
+            background-color: rgba(255, 197, 197, 0.596);
+            border: 0;
+            &:hover{
+                background-color: rgba(255, 197, 197, 0.942);
+            }
+            &:active{
+                background-color: rgba(255, 197, 197, 0.493);
+            }
+        }
+    }
+}

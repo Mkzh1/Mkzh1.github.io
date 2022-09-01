@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .time {
+            width: 500px;
+            height: 500px;
+            background-color: aquamarine;
+            position: relative;
+            border-radius: 50%;
+            box-sizing: border-box;
+        }
+
+        .time .b {
+            width: 8px;
+            height: 35px;
+            position: absolute;
+            top: 0;
+            background-color: aliceblue;
+            left: calc(50% - 4px);
+            transform-origin: center 250px;
+
+        }
+
+        .time .s {
+            width: 4px;
+            height: 20px;
+            position: absolute;
+            top: 0;
+            background-color: rgb(134, 198, 255);
+            left: calc(50% - 2px);
+            /* transform-origin:top 50%; */
+            transform-origin: center 250px;
+            transform: rotate();
+        }
+
+        .time span {
+            width: 8px;
+            position: absolute;
+            top: 50%;
+            left: calc(50% - 4px);
+            transform-origin: bottom;
+        }
+
+        .time .hour {
+            height: 100px;
+            position: absolute;
+            top: calc(50% - 100px);
+            z-index: 3;
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            background-color: rgb(40, 148, 112);
+            transition: all 1s linear;
+        }
+
+        .time .min {
+            transition: all 1s linear;
+            height: 150px;
+            position: absolute;
+            top: calc(50% - 150px);
+            z-index: 2;
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            background-color: rgb(51, 191, 242);
+            
+        }
+
+        .time .sec {
+            height: 200px;
+            position: absolute;
+            top: calc(50% - 200px);
+            z-index: 1;
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            background-color: rgb(189, 189, 189);
+            transition: all .2s;
+        }
+
+        .time .state {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background-color: black;
+            border-radius: 50%;
+            z-index: 9;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="time">
+        <span class="sec"></span>
+        <span class="min"></span>
+        <span class="hour"></span>
+        <span class="state"></span>
+    </div>
+</body>
+<script>
+    var timebBox = document.querySelector(".time")
+    var oclick = document.querySelectorAll(".time div")
+    for (var i = 0; i < (12 * 5); i++) {
+        var node = document.createElement('div')
+        if (i % 5 === 0) {
+            var bx = node.className = 'b'
+            //   var b = document.querySelector('.b')
+        } else {
+            var sx = node.className = 's'
+        }
+        timebBox.appendChild(node)
+        node.style.transform = "rotate(" + i * (360 / (12 * 5)) + "deg)"
+    }
+    //求当前时间的时分秒,距离下一次还剩下多少时间,要做到每秒移动一度
+    
+    var sec = document.querySelector(".sec")
+    var min = document.querySelector(".min")
+    var hour = document.querySelector(".hour")
+    setInterval(function(){
+        var now = new Date();
+        var hH = now.getHours()
+        var mM = now.getMinutes()
+        var ss = now.getSeconds()
+        
+        console.log(hH,mM,ss);
+        hour.style.transform = "rotate(" + hH * (360/12) + "deg)"
+        min.style.transform = "rotate(" + mM * (360 / (12 * 5)) + "deg)"
+        sec.style.transform = "rotate(" + ss * (360 / (12 * 5)) + "deg)"
+    }, 1000)
+</script>
+
+</html>

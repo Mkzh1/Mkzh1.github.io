@@ -1,0 +1,197 @@
+@media screen and (max-width:991px) {
+    .Consultation {
+        .csl-form {
+            display: initial;
+            // background-color: aquamarine;
+        }
+    }
+    .services{
+        .row {
+            &.top {
+                .col-sm-8 {
+                    div {
+                        font-size: 17px;
+                    }
+                    h3 {
+                        font-size: 35px;
+                        font-weight: bold;
+                    }
+                }
+                .col-sm-4 {
+                    text-align: right;
+                    a {
+                        background-color: transparent;
+                        color: #fff;
+                        border: 1px solid #185C69;
+                        border: 2px solid #2cacc4;
+                        padding: 10px 20px;
+                    }
+                }
+            }
+            .media{
+                padding:20px 30px;
+                // font-size: 15px;
+            }
+        }
+    }
+    .nav {
+        .container {
+            .row {
+                display: flex;
+
+                .x-btn {
+                    display: flex;
+                    justify-content: end;
+
+                    >.btn {}
+
+                }
+                .sm-list {
+                    min-width: 200px;
+                    height: 100vh;
+                    left: 0;
+                    top: 0;
+                    background-color: rgb(125, 125, 125);
+                    position: fixed;
+                }
+            }
+        }
+    }
+
+    .Expert {
+        .row {
+            .Ex-box {
+                margin: 20px 0;
+            }
+        }
+    }
+
+    .aesth {
+        .first {
+            .row.top {
+                display: initial;
+
+                >div:nth-child(3) {
+                    margin-top: 20px;
+                }
+
+                .mas {
+                    // margin-top: 10px;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+
+        .footer {
+            .data {
+                text-align: center;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width:768px) {
+    .services{
+        .row {
+            .media{
+                padding:40px;
+            }
+        }
+    }
+    .Consultation {
+        .container{
+            .csl-form{
+                >.col-md-8 {
+                    .row{
+                        display: initial;
+                        transition: all .3s;
+                        .left{
+                            span{margin: 20px 0;}
+                            h1{margin: 20px 0;}
+                            p{margin: 20px 0;}
+                        }
+                        .right{
+                            padding: 0;
+                            .img{
+                                height: 350px;
+                            }
+                        }
+                    }
+                    margin-left:0 ;
+                }
+            }
+        }
+    }
+
+    .banner {
+        .row {
+            padding: 0 0 0 20px;
+            transition: all .3s;
+            .x-box {
+                .col-md-8 {
+                    display: initial;
+                    background-color: aqua;
+                }
+            }
+        }
+    }
+
+    .services {
+        .row {
+            &.top {
+                transition: all .3s;
+                .col-xs-12 {
+                    text-align: left;
+                    margin: 20px 0;
+                }
+            }
+        }
+    }
+
+    .album {
+        .row {
+            .left {
+                >div {
+                    margin: 0;
+
+                    div {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .news {
+        .container {
+            .row.top {
+                .col-sm-4 {
+                    transition: all .3s;
+                    margin: 20px 0;
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    .aesth {
+        .first {
+            .row.top {
+                text-align: center;
+                transition: all .3s;
+                >div:not(:nth-child(1)) {
+                    margin-top: 20px;
+                }
+
+                .mas {
+                    // margin-top: 10px;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+        
+    }
+}

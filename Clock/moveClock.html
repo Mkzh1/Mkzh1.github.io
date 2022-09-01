@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .Bigbox {
+            display: flex;
+        }
+
+        section {
+            background-color: aliceblue;
+            display: flex;
+        }
+
+        section div {
+            width: 50px;
+            height: 100px;
+            display: flex;
+            font-size: 45px;
+            flex-direction: column;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+        section div span {
+            display: flex;
+            width: 100%;
+            color: #fff;
+            height: 100px;
+            border: 5px solid #ccc;
+            box-sizing: border-box;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(83, 94, 94);
+            flex-shrink: 0;
+
+            transition: all .3s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Bigbox">
+        <section class="hHbox">
+            <div class="s1">
+                <span>0</span>
+            </div>
+            <div class="s2">
+                <span>0</span>
+            </div>
+        </section>
+        <section class="mMbox">
+            <div class="s1">
+                <span>0</span>
+            </div>
+            <div class="s2">
+                <span>0</span>
+            </div>
+        </section>
+        <section class="sSbox">
+            <div class="s1">
+                <span>0</span>
+            </div>
+            <div class="s2">
+                <span>0</span>
+            </div>
+        </section>
+    </div>
+
+
+
+</body>
+<script>
+    function moveNew(elent, index) {
+        var firstBox = elent.getElementsByTagName('span')[0]
+        // console.log(firstBox)
+        if (firstBox.innerText != index) {
+            var newSeconds = document.createElement('span')
+
+            newSeconds.innerText = index
+
+            firstBox.style.marginTop = '-100px'
+            elent.appendChild(newSeconds)
+            setTimeout(function () {
+                elent.removeChild(firstBox)
+            }, 300)
+        }
+    }
+    setInterval(
+        function () {
+            var sSbox = document.querySelectorAll(".sSbox div")
+            var mMbox = document.querySelectorAll(".mMbox div")
+            var hHbox = document.querySelectorAll(".hHbox div")
+            var now = new Date()
+            hH = String(now.getHours()).padStart(2, '0')
+            mM = String(now.getMinutes()).padStart(2, '0')
+            ss = String(now.getSeconds()).padStart(2, '0')
+            console.log(hH,mM,ss)
+            sSbox.forEach(function (ele, i) {
+                moveNew(ele, ss[i])
+            })
+
+            mMbox.forEach(function (ele, i) {
+                moveNew(ele, mM[i])
+            })
+
+            hHbox.forEach(function (ele, i) {
+                moveNew(ele, hH[i])
+            })
+        }, 1000
+    )
+
+
+</script>
+
+<script>
+    // function ssMove(element,index) {
+    //     var firstBox = element.getElementsByTagName('span')[0];
+    //     if(firstBox.innerText != index){
+    //         var newBox = document.createElement('span')
+
+    //         newBox.innerText = index;
+    //         firstBox.style.marginTop = "-100px"
+    //         element.appendChild(newBox);
+    //         setTimeout(function () {
+    //             element.removeChild(firstBox)
+    //         },300)
+
+    //     }
+    // }
+    // //定义两个盒子的变量，当第一个往上位移的时候，我需要删除第一个，使上来的第二个赋值到第一个变量的位置，并且生成出来第二个变量
+    // var sSBox = document.querySelectorAll('.sSbox div')
+    // setInterval(function () {
+    //     var now = new Date()
+    //     var ss = String(now.getSeconds()).padStart(2, "0")
+    //     //padStart(2,"0")这个需要配合字符串使用，应该是字符串的方法
+    //    sSBox.forEach(
+    //     function(ele , i){
+    //         ssMove(ele,ss[i])
+    //         // console.log(ele)
+    //     }
+    //     );
+    // }, 1000)
+</script>
+
+</html>

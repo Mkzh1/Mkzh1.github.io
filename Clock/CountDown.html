@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            background-color: rgba(127, 255, 212, 0.513);
+        }
+        h1{
+            position: absolute;
+            top: 38%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(255, 255, 255);
+
+        }
+        .timeout {
+            width: 300px;
+            height: 150px;
+            /* background-color: rgb(100, 255, 203) */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .timeout div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 255, 170, 0.345);
+            font-weight: bold;
+            color: #fff;
+            font-size: 25px;
+            margin: 0 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .timeout div::after {
+            color: #fff;
+            position: absolute;
+            left: 50%;
+            top: -20px;
+            font-size: 12px;
+            transform: translateX(-50%);
+            font-size: 12px;
+        }
+
+        .timeout div:nth-child(1)::after {
+            content: 'DAYS';
+        }
+
+        .timeout div:nth-child(2)::after {
+            content: 'HOURS';
+        }
+
+        .timeout div:nth-child(3)::after {
+            content: 'MINUTES';
+        }
+
+        .timeout div:nth-child(4)::after {
+            content: 'SECNDS';
+        }
+    </style>
+</head>
+
+<body>
+        <h1>距离2023年9月1日剩下</h1>
+        <div class="timeout">
+            <div class="days"></div>
+            <div class="hours"></div>
+            <div class="minutes"></div>
+            <div class="seconds"></div>
+    </div>
+</body>
+<script>
+
+    var days = document.querySelector(".days")
+    var hours = document.querySelector(".hours")
+    var minutes = document.querySelector(".minutes")
+    var seconds = document.querySelector(".seconds")
+    //取今天的时间戳
+    times()
+    setInterval(times,1000)
+   function times() {
+    var now = Date.now()
+    var d =new Date()
+    //计算当天距离前往的未来那天剩余多少时间
+
+    var future = Date.parse("September 1,2023,0:0:0")
+    future=(future - now)/1000
+    var surplusDays = parseInt(future/60/60/24)
+    console.log(surplusDays)
+    surplusDays<10 ? days.innerText = "0"+surplusDays:days.innerText = surplusDays
+    //计算当前距离下一天剩下多少时间
+
+    // var tomorrow = Date.parse("July 29,2022")
+    tomorrow = parseInt(future/60/60 %24)
+    console.log(tomorrow)
+    tomorrow < 10 ? hours.innerText = "0"+tomorrow:hours.innerText = tomorrow
+    //计算当前距离下一个小时剩下多少时间
+
+    // var toHours = Date.parse("July 28,2022,22:0:0")
+    toHours = parseInt(future/60%60)
+    console.log(toHours)
+    toHours < 10 ? minutes.innerText = "0" + toHours : minutes.innerText = toHours
+
+    //计算当前距离下一分钟剩下多少秒
+
+    var x = new Date()
+    x=x.getSeconds()
+    var sn = 60
+    toseconds=sn - x
+    toseconds<10 ? seconds.innerText = "0"+toseconds:seconds.innerText = toseconds
+    console.log(toseconds)
+   }
+
+    //根据实际的时间来计算处理剩余多少时间并倒计时
+    //前往未来9月1日 8点 00分 00秒
+    //算出来还有34天 
+    //距离明天7月29日还剩下 3小时 多少分 多少秒
+    //距离下一个小时还有 多少分 多少秒
+
+    
+    
+    
+    
+    
+    
+    //单纯计算处理的倒计时
+    // var days = document.querySelector(".days")
+    // var hours = document.querySelector(".hours")
+    // var minutes = document.querySelector(".minutes")
+    // var seconds = document.querySelector(".seconds")
+    // var times = 0;
+    // var day = 0;
+    // var hour = 0;
+    // setInterval(() => {
+    //     days.innerText <= 0 ? days.innerText = 59 : days.innerText--
+    //     days.innerText < 10 ? days.innerText = "0" + days.innerText : days.innerText
+    // }, 60 * 60 * 24 * 1000)
+    // setInterval(() => {
+    //     hours.innerText <= 0 ? hours.innerText = 23 : hours.innerText--
+    //     hours.innerText < 10 ? hours.innerText = "0" + hours.innerText : hours.innerText
+    // }, 60 * 60 * 1000)
+    // setInterval(() => {
+    //     minutes.innerText <= 0 ? minutes.innerText = 59 : minutes.innerText--
+    //     minutes.innerText < 10 ? minutes.innerText = "0" + minutes.innerText : minutes.innerText
+    // }, 60 * 1000)
+    // setInterval(() => {
+    //     seconds.innerText <= 0 ? seconds.innerText = 59 : seconds.innerText--
+    //     seconds.innerText < 10 ? seconds.innerText = "0" + seconds.innerText : seconds.innerText
+    // }, 1000)
+</script>
+
+</html>

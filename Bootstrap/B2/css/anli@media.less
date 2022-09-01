@@ -1,0 +1,152 @@
+@media screen and (max-width:991px) {
+    .nav {
+        .row {
+            position: relative;
+
+            .logo {
+                padding: 0;
+            }
+
+            justify-content: end;
+
+            .tl-List {
+                width: 100%;
+                background-color: #000;
+                top: calc(100% + 20px);
+                left: 0;
+                padding: 0;
+
+                position: absolute;
+
+                .list {
+                    margin: 0;
+                    padding: 0;
+                    li {
+                        margin: 20px 0;
+                        color: #fff;
+                        &:nth-child(1){
+                            margin-top: 40px;
+                        }
+                        text-align: center;
+                    }
+                }
+
+                .row {
+                    padding: 10px 10px 20px 10px;
+
+                    .sinp {
+                        padding: 0;
+
+                        input {
+                            border-top-left-radius: 25px;
+                            border-bottom-left-radius: 25px;
+                            padding: 10px 0 10px 20px;
+                            width: 100%;
+                            background-color: rgba(143, 143, 143, 0.368);
+
+                            &::placeholder {
+                                color: #fff;
+                            }
+                        }
+                    }
+
+                    .sbtn {
+                        padding: 0;
+
+                        button {
+                            background-color: rgb(255, 26, 26);
+                            color: #fff;
+                            width: 100%;
+                            animation: moveBtn .5s forwards linear;
+                            padding: 10px;
+                            border-top-right-radius: 25px;
+                            border-bottom-right-radius: 25px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .inpBtn {
+            .row {
+                .icon {
+                    margin-right: 20px;
+                }
+
+                .hamburger {
+                    button {
+                        background-color: #f00;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .experience {
+        .container {
+            display: flex;
+            flex-direction: column;
+
+            .leftData {
+                margin-bottom: 60px;
+            }
+        }
+    }
+
+    .Design {
+        .DesBox {
+            flex-direction: column;
+
+            .left {
+                margin-bottom: 60px;
+            }
+
+            .right {
+                padding: 0;
+                text-align: left;
+            }
+        }
+    }
+
+    .Blog {
+        .col-sm-6 {
+            margin-bottom: 30px;
+        }
+
+    }
+
+    .onDress {
+        .C-cont {
+            margin-bottom: 60px;
+        }
+
+        .C-list {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .works {
+        .top {
+            .topBox {
+                flex-direction: column;
+
+                .left {
+                    .smLeftBox {
+                        padding: 100px;
+                    }
+                }
+            }
+        }
+
+        .bottom {
+            flex-direction: column;
+
+            .cont {
+                padding: 100px 0;
+            }
+        }
+    }
+}

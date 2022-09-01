@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="referrer" content="never">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./ajaxCss/ajax.css">
+</head>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<style>
+</style>
+
+<body>
+    <div class="top">
+        <div class="topBox">
+            <div class="theme">
+                <div class="first">题材</div>
+                <div class="second">
+                    <div title="-1" class="nam">全部</div>
+                    <div>热血</div>
+                    <div>古风</div>
+                    <div>玄幻</div>
+                    <div>奇幻</div>
+                    <div>悬疑</div>
+                    <div>都市</div>
+                    <div>历史</div>
+                    <div>武侠仙侠</div>
+                    <div>游戏竞技</div>
+                    <div>悬疑灵异</div>
+                    <div>架空</div>
+                    <div>青春</div>
+                    <div>西幻</div>
+                    <div>现代</div>
+                    <div>正能量</div>
+                    <div>科幻</div>
+                </div>
+            </div>
+            <div class="region">
+                <div class="first">地区</div>
+                <div class="second">
+                    <div>全部</div>
+                    <div>大陆</div>
+                    <div>日本</div>
+                    <div>韩国</div>
+                    <div>其他</div>
+                </div>
+            </div>
+            <div class="progress">
+                <div class="first">进度</div>
+                <div class="second">
+                    <div>全部</div>
+                    <div>连载</div>
+                    <div>完结</div>
+                </div>
+
+            </div>
+            <div class="price">
+                <div class="first">收费</div>
+                <div class="second">
+                    <div>全部</div>
+                    <div>免费</div>
+                    <div>付费</div>
+                    <div>等就免费</div>
+                </div>
+
+            </div>
+            <div class="order">
+                <div class="first">排序</div>
+                <div class="second">
+                    <div>人气推荐</div>
+                    <div>更新时间</div>
+                    <div>追漫人数</div>
+                    <div>上架时间</div>
+                </div>
+            </div>
+            <div class="list"></div>
+        </div>
+    </div>
+    <script>
+        var styId = [-1, 999, 997, 1016, 998, 1023, 1002, 1096, 1092, 1088, 1081, 1063, 1060, 1054, 1048, 1028, 1015]
+        var areId = [-1, 1, 2, 6, 5]
+        var finish = [-1, 0, 1]
+        var isFree = [-1, 1, 2, 3]
+        var order = [0, 1, 2, 3]
+        $(".theme .second div").each(function (index, el) {
+            $(this)[0].title = styId[index]
+        })
+        $(".region .second div").each(function (index, el) {
+            $(this)[0].title = areId[index]
+        })
+        $(".progress .second div").each(function (index, el) {
+            $(this)[0].title = finish[index]
+        })
+        $(".price .second div").each(function (index, el) {
+            $(this)[0].title = isFree[index]
+        })
+        $(".order .second div").each(function (index, el) {
+            $(this)[0].title = order[index]
+        })
+        //获取到我当前点击的元素里面的title,每次点击一次执行一次查询
+        // this.title
+        $(".theme .second div").click(function (e) {
+            $(this).addClass("active").siblings().removeClass("active")
+            $.cookie("theme", this.title, { expires: 7, path: '/' })
+            silceCookie()
+            console.log(silceCookie()[0])
+            $.get('https://apis.netstart.cn/bcomic/ClassPage?styleId='
+                +
+                silceCookie()[0] +
+                '&areaId='
+                + silceCookie()[1]
+                + '&isFinish='
+                + silceCookie()[2]
+                + '&order='
+                + silceCookie()[4]
+                + '&pageNum=1&pageSize=39&isFree='
+                + silceCookie()[3], function (res) {
+                    $(".top .topBox .list").children().remove();
+                    if (res) {
+                        var arrEl = res.data
+                        for (var i = 0; i < arrEl.length; i++) {
+                            $(".top .topBox .list").append("<div class='listli'><div class='img' style='background-image:url("
+                                + arrEl[i].vertical_cover + ")'></div><span>"
+                                + arrEl[i].title +
+                                "</span><div class='data'>更新至"
+                                + arrEl[i].last_short_title +
+                                "</div></div >")
+                            console.log(arrEl[i])
+                        }
+                    } else {
+                        console.log("404")
+                    }
+                })
+        })
+        $(".region .second div").click(function (e) {
+            $(this).addClass("active").siblings().removeClass("active")
+            $.cookie("region", this.title, { expires: 7, path: '/' })
+            silceCookie()
+            console.log(silceCookie()[1])
+            $.get('https://apis.netstart.cn/bcomic/ClassPage?styleId='
+                +
+                silceCookie()[0] +
+                '&areaId='
+                + silceCookie()[1]
+                + '&isFinish='
+                + silceCookie()[2]
+                + '&order='
+                + silceCookie()[4]
+                + '&pageNum=1&pageSize=39&isFree='
+                + silceCookie()[3], function (res) {
+                    $(".top .topBox .list").children().remove();
+                    if (res) {
+                        var arrEl = res.data
+                        for (var i = 0; i < arrEl.length; i++) {
+                            $(".top .topBox .list").append("<div class='listli'><div class='img' style='background:url(" + arrEl[i].vertical_cover + ")'></div><span>"
+                                + arrEl[i].title +
+                                "</span><div>更新至"
+                                + arrEl[i].last_short_title +
+                                "</div></div >")
+                            console.log(arrEl[i])
+                        }
+                    } else {
+                        console.log("404")
+                    }
+                })
+        })
+        $(".progress .second div").click(function (e) {
+            $(this).addClass("active").siblings().removeClass("active")
+            $.cookie("progress", this.title, { expires: 7, path: '/' })
+            silceCookie()
+            console.log(silceCookie()[2])
+            $.get('https://apis.netstart.cn/bcomic/ClassPage?styleId='
+                +
+                silceCookie()[0] +
+                '&areaId='
+                + silceCookie()[1]
+                + '&isFinish='
+                + silceCookie()[2]
+                + '&order='
+                + silceCookie()[4]
+                + '&pageNum=1&pageSize=39&isFree='
+                + silceCookie()[3], function (res) {
+                    $(".top .topBox .list").children().remove();
+                    if (res) {
+                        var arrEl = res.data
+                        for (var i = 0; i < arrEl.length; i++) {
+                            $(".top .topBox .list").append("<div class='listli'><div class='img' style='background:url(" + arrEl[i].vertical_cover + ")'></div><span>"
+                                + arrEl[i].title +
+                                "</span><div>更新至"
+                                + arrEl[i].last_short_title +
+                                "</div></div >")
+                            console.log(arrEl[i])
+                        }
+                    } else {
+                        console.log("404")
+                    }
+                })
+        })
+        $(".price .second div").click(function (e) {
+            $(this).addClass("active").siblings().removeClass("active")
+            $.cookie("price", this.title, { expires: 7, path: '/' })
+            silceCookie()
+            console.log(silceCookie()[3])
+            $.get('https://apis.netstart.cn/bcomic/ClassPage?styleId='
+                + silceCookie()[0] +
+                '&areaId='
+                + silceCookie()[1]
+                + '&isFinish='
+                + silceCookie()[2]
+                + '&order='
+                + silceCookie()[4]
+                + '&pageNum=1&pageSize=39&isFree='
+                + silceCookie()[3], function (res) {
+                    $(".top .topBox .list").children().remove();
+                    if (res) {
+                        var arrEl = res.data
+                        for (var i = 0; i < arrEl.length; i++) {
+                            $(".top .topBox .list").append("<div class='listli'><div class='img' style='background:url(" + arrEl[i].vertical_cover + ")'></div><span>"
+                                + arrEl[i].title +
+                                "</span><div>更新至"
+                                + arrEl[i].last_short_title +
+                                "</div></div >")
+                            console.log(arrEl[i])
+                        }
+                    } else {
+                        console.log("404")
+                    }
+                })
+        })
+        $(".order .second div").click(function (e) {
+            $(this).addClass("active").siblings().removeClass("active")
+            $.cookie("order", this.title, { expires: 7, path: '/' })
+            silceCookie()
+            console.log(silceCookie()[4])
+            $.get('https://apis.netstart.cn/bcomic/ClassPage?styleId=' +
+                silceCookie()[0] +
+                '&areaId='
+                + silceCookie()[1]
+                + '&isFinish='
+                + silceCookie()[2]
+                + '&order='
+                + silceCookie()[4]
+                + '&pageNum=1&pageSize=39&isFree='
+                + silceCookie()[3],
+                function (res) {
+                    $(".top .topBox .list").children().remove();
+                    if (res) {
+                        var arrEl = res.data
+                        for (var i = 0; i < arrEl.length; i++) {
+                            $(".top .topBox .list").append("<div class='listli'><div class='img' style='background:url(" + arrEl[i].vertical_cover + ")'></div><span>"
+                                + arrEl[i].title +
+                                "</span><div>更新至"
+                                + arrEl[i].last_short_title +
+                                "</div></div >")
+                            console.log(arrEl[i])
+                        }
+                    } else {
+                        console.log("404")
+                    }
+                })
+        })
+        function silceCookie() {
+            var arrCookie = []
+            if ($.cookie('theme')) {
+                arrCookie.push($.cookie('theme'))
+            } else {
+                arrCookie.push("-1")
+            }
+            if ($.cookie('region')) {
+                arrCookie.push($.cookie('region'))
+            } else {
+                arrCookie.push("-1")
+            }
+            if ($.cookie('progress')) {
+                arrCookie.push($.cookie('progress'))
+            }
+            else {
+                arrCookie.push("-1")
+            }
+            if ($.cookie('price')) {
+                arrCookie.push($.cookie('price'))
+            }
+            else {
+                arrCookie.push("-1")
+            }
+            if ($.cookie('order')) {
+                arrCookie.push($.cookie('order'))
+            }
+            else {
+                arrCookie.push("0")
+            }
+            return arrCookie
+        }
+        // $.get('https://apis.netstart.cn/bcomic/ClassPage?styleId=999&areaId=-1&isFinish=-1&order=0&pageNum=1&pageSize=39&isFree=-1', function (res) {
+        //     console.log(res)
+        // })
+
+    </script>
+</body>
+
+</html>

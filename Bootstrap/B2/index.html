@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="./css/anli.css">
+    <link rel="stylesheet" href="./css/anli@media.css">
+    <!-- <link rel="stylesheet" href="./css/anli@media.css"> -->
+</head>
+
+<body>
+    <div class="Up-btn" id="Upbtn">
+        <i class="fa fa-level-up" aria-hidden="true"></i>
+    </div>
+    <section class="nav">
+        <div class="container text">
+            <div class="row">
+                <div class="col-xs-6  col-md-3 col-lg-3 logo">
+                    <div>
+                        Dress<span>-Up</span>
+                    </div>
+                </div>
+                <div class="col-xs-5  visible-lg visible-md  col-lg-5 list ">
+                    <ul>
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Services</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+                <div class="col-xs-6  col-md-4 col-lg-4">
+                    <div class="inpBtn">
+                        <div class="row">
+                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9  visible-lg visible-md sinp">
+                                <input type="text" placeholder="Enter Keyword……">
+                            </div>
+                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2  visible-lg visible-md sbtn">
+                                <button>
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 icon">
+                                <i class="fa fa-moon-o" aria-hidden="true" style="cursor:pointer;"></i>
+                                <script>
+                                    // $(this).removeClass("fa-moon-o").addClass("fa-sun-o")
+                                    var off = true
+                                    $(".inpBtn .row .icon").find("i").click(function () {
+                                        console.log(off);
+                                        if (off) {
+                                            $(this)[0].className = "fa fa-sun-o"
+                                            off = false
+                                            $("body").css({
+                                                background: "#000",
+                                                color: "#fff"
+                                            }).children().css({
+                                                color: "#fff"
+                                            }).find(".Clients .content .row div").css("background", "#000")
+                                        } else {
+                                            $(this)[0].className = "fa fa-moon-o"
+                                            off = true
+                                            $("body").css({
+                                                background: "#fff",
+                                                color: "#000"
+                                            }).children().css({
+                                                color: "#000"
+                                            }).find(".Clients .content .row").find("div").css("background", "#fff")
+                                        }
+                                    })
+                                </script>
+                            </div>
+                            <div class="hidden-lg hidden-md x-btn hamburger">
+                                <button class="glyphicon glyphicon-menu-hamburger btn ham-btn"></button>
+                            </div>
+                        </div>
+                        <script>
+                            window.onload = function () {
+                                $(".nav .tl-List").hide()
+                            }
+                            var over = true;
+                            $(".hamburger").click(function () {
+                                if (over) {
+                                    $(".nav .tl-List").slideToggle()
+                                    $("body").css("overflowY", "hidden")
+                                    over = false
+                                    console.log(over);
+                                } else {
+                                    $(".nav .tl-List").slideToggle()
+                                    $("body").css("overflowY", "initial")
+                                    over = true;
+                                    console.log(over);
+
+                                }
+                            })
+                        </script>
+                    </div>
+                </div>
+                <div class="col-xs-12 hidden-lg hidden-md tl-List">
+                    <div>
+                        <ul class="list">
+                            <li>Home</li>
+                            <li>About</li>
+                            <li>Services</li>
+                            <li>Contact</li>
+                        </ul>
+
+                        <div class="row">
+
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div>
+                                    <div class="col-xs-9 sinp">
+                                        <input type="text" placeholder="Enter Keyword……">
+                                    </div>
+                                    <div class="col-xs-3 sbtn">
+                                        <button>
+                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="swiper">
+        <div class="Img"draggable="false">
+            <div class="sw-Btn">
+                <span class="btnLeft glyphicon glyphicon-chevron-left"></span>
+                <span class="btnRight glyphicon glyphicon-chevron-right"></span>
+            </div>
+
+            <div class="container-fluid ImgBox">
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-12 title">
+                        <span>STITCHING</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 con">
+                        <h2>YOUR <span>NEW</span> STYLE</h2>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 btn">
+                        <button>View Move</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="Img"draggable="false">
+            <div class="sw-Btn">
+                <span class="btnLeft glyphicon glyphicon-chevron-left"></span>
+                <span class="btnRight glyphicon glyphicon-chevron-right"></span>
+            </div>
+
+            <div class="container-fluid ImgBox">
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-12 title">
+                        <span>NEW TRENDS</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 con">
+                        <h2>CUSTOM <span>MADE</span> SUITS</h2>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 btn">
+                        <button>View Move</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="Img"draggable="false">
+            <div class="sw-Btn">
+                <span class="btnLeft glyphicon glyphicon-chevron-left"></span>
+                <span class="btnRight glyphicon glyphicon-chevron-right"></span>
+            </div>
+
+            <div class="container-fluid ImgBox">
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-12 title">
+                        <span>NEW MODELS</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 con">
+                        <h2>EMBRACE <span>YOUR</span> STYLE</h2>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 btn">
+                        <button>View Move</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="Img"draggable="false">
+            <div class="sw-Btn">
+                <span class="btnLeft glyphicon glyphicon-chevron-left"></span>
+                <span class="btnRight glyphicon glyphicon-chevron-right"></span>
+            </div>
+            <div class="container-fluid ImgBox">
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-12 title">
+                        <span>FASHION LOOK</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 con">
+                        <h2>STYLES <span>AND</span> TRENDS</h2>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 btn">
+                        <button>View Move</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="Services">
+        <div class="container S-top">
+            <div class="row">
+                <h3>Services we're <span>offering</span></h3>
+            </div>
+        </div>
+        <div class="container S-footer">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 S-item">
+                    <div class="S-itemBox">
+                        <div class="img">
+                            <img src="./img/s1.jpg" alt="">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </div>
+                        <div class="post-content">
+                            <div class="top">Measurements</div>
+                            <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse,
+                                consectetur.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 S-item">
+                    <div class="S-itemBox">
+                        <div class="img">
+                            <img src="./img/s2.jpg" alt="">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </div>
+                        <div class="post-content">
+                            <div class="top">Measurements</div>
+                            <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse,
+                                consectetur.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 S-item">
+                    <div class="S-itemBox">
+                        <div class="img">
+                            <img src="./img/s3.jpg" alt="">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </div>
+                        <div class="post-content">
+                            <div class="top">Measurements</div>
+                            <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse,
+                                consectetur.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 S-item">
+                    <div class="S-itemBox">
+                        <div class="img">
+                            <img src="./img/s4.jpg" alt="">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </div>
+                        <div class="post-content">
+                            <div class="top">Measurements</div>
+                            <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse,
+                                consectetur.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 S-btn">
+            <button>View More Services</button>
+        </div>
+
+    </section>
+    <section class="Clients">
+
+        <div class="container">
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 Cli-top">
+                <div class="topBox">
+                    What <span>we do</span> for our <span>Clients?</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container content">
+
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-6 col-md-4  Cli-footer">
+                    <div class="footerBox">
+                        <div class="userimg">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span>01</span>
+                        </div>
+                        <h3>Unique Design</h3>
+                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit. doloret quas saepe autem, dolor
+                            set. </p>
+                        <span class="Cli-btn">
+                            Read More
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4  Cli-footer">
+                    <div class="footerBox">
+                        <div class="userimg">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span>01</span>
+                        </div>
+                        <h3>Unique Design</h3>
+                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit. doloret quas saepe autem, dolor
+                            set. </p>
+                        <span class="Cli-btn">
+                            Read More
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xs-12  col-sm-6 col-md-4  Cli-footer col-sm-offset-3 col-md-offset-0">
+                    <div class="footerBox">
+                        <div class="userimg">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span>01</span>
+                        </div>
+                        <h3>Unique Design</h3>
+                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit. doloret quas saepe autem, dolor
+                            set. </p>
+                        <span class="Cli-btn">
+                            Read More
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="experience">
+
+        <div class="container">
+
+            <div class="col-xs-12 col-sm-12 col-md-6 leftData">
+                <h3>25 years of experience</h3>
+                <p>At corrupti odit At iure facere, porro repellat officia quas, dolores magnam assumenda soluta odit
+                    harum maiores fugiat accusamus eos nulla. Iure voluptatibus explicabo officia.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. At, corrupti odit? At iure facere, porro
+                    repellat officia quas, dolores magnam assumenda soluta odit harum.</p>
+                <button>Know more about us</button>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 rightImg">
+                <div class="Img">
+                    <img src="./img/about.jpg" alt="">
+                </div>
+                <div class="playI">
+                    <i class="fa fa-play" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="Design">
+        <div class="container">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="DesBox">
+                    <div class="col-xs-12 col-sm-12 col-md-6 left">
+                        <h2>Your <span>Design</span>, We <span>deliver</span></h2>
+                        <p>Lorem ipsum dolor sit amet elit. Velit beatae rem ullam dolore nisi esse quasi. Integer sit
+                            amet. Lorem ipsum dolor sit amet elit.</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 right">
+                        <a href="#">Book your appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="works">
+
+        <div class="container-fluid">
+
+            <div class="row top">
+                <div class="topBox">
+                    <div class="col-xs-12 col-sm-12 col-md-6 left">
+                        <div class="smLeftBox">
+                            <h1>Our Works</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur hic odio
+                                consequatur.Lorem
+                                ipsum dolor sit amet consectetur adipisicing elit. Velit beatae laudantium rem ullam
+                                dolore
+                                nisi. Integer sit amet mattis quam.</p>
+                            <div class="Topa">
+                                <a href="#" class="Tellbtn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 right">
+                        <div class="back">
+
+                        </div>
+                        <!-- <img src="./img/bg2.jpg" alt=""> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row bottom">
+
+                <div class="col-xs-12 col-sm-3  W-img">
+                    <div class="botBox">
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3  cont">
+                    <div class="conter">
+                        <i class="fa fa-smile-o" aria-hidden="true"></i>
+                        <h3>Our Designs</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3  W-img">
+                    <div class="botBox">
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3  cont">
+                    <div class="conter">
+                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                        <h3>Our Designs</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <section class="Blog">
+
+        <div class="container">
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 title">
+                <h1><span>Our</span> Blog Posts</h1>
+            </div>
+
+        </div>
+
+        <div class="container">
+
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="dataBox">
+                    <div class="top">
+                        <img src="./img/blog1.jpg" alt="">
+                        <div class="dark">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <div class="con">
+                            <div class="user">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <span>Mauree</span>
+                            </div>
+                            <div class="user">
+                                <i class="fa fa-clock-o fl" aria-hidden="true"></i>
+                                <span>Mpv 16,2021</span>
+                            </div>
+                        </div>
+                        <h3>Set a Fashion Trend!</h3>
+                        <p>At corrupti odit At iure facere,
+                            porro repellat officia quas, magnam assumenda.</p>
+                        <div class="aBtn">
+                            <a href="#">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="dataBox">
+                    <div class="top">
+                        <img src="./img/blog2.jpg" alt="">
+                        <div class="dark">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <div class="con">
+                            <div class="user">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <span>Mauree</span>
+                            </div>
+                            <div class="user">
+                                <i class="fa fa-clock-o fl" aria-hidden="true"></i>
+                                <span>Mpv 16,2021</span>
+                            </div>
+                        </div>
+                        <h3>Set a Fashion Trend!</h3>
+                        <p>At corrupti odit At iure facere,
+                            porro repellat officia quas, magnam assumenda.</p>
+                        <div class="aBtn">
+                            <a href="#">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-offset-0 col-md-4">
+                <div class="dataBox">
+                    <div class="top">
+                        <img src="./img/blog3.jpg" alt="">
+                        <div class="dark">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <div class="con">
+                            <div class="user">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <span>Mauree</span>
+                            </div>
+                            <div class="user">
+                                <i class="fa fa-clock-o fl" aria-hidden="true"></i>
+                                <span>Mpv 16,2021</span>
+                            </div>
+                        </div>
+                        <h3>Set a Fashion Trend!</h3>
+                        <p>At corrupti odit At iure facere,
+                            porro repellat officia quas, magnam assumenda.</p>
+                        <div class="aBtn">
+                            <a href="#">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="onDress">
+
+        <div class="container">
+
+            <div class="row top">
+
+                <div class="col-xs-12 col-sm-12 col-md-4  C-cont">
+                    <div class="contBox">
+                        <h3>Dress<span>-Up</span></h3>
+                        <p>Nam libero tempore, cum soluta nobis est elige endi optio cumque nihil impedit quo minus id
+                            quod
+                            maxime placeat facere. Istee natuser iumedolo ladase.</p>
+                        <div>
+                            <i class="fa fa-facebook fl" aria-hidden="true"></i>
+                            <i class="fa fa-linkedin fl" aria-hidden="true"></i>
+                            <i class="fa fa-twitter fl" aria-hidden="true"></i>
+                            <i class="fa fa-google-plus fl" aria-hidden="true"></i>
+                            <i class="fa fa-gitlab fl" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-5  C-list">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 left">
+                            <h3>Quick Link</h3>
+                            <ul>
+                                <li><span>Home</span></li>
+                                <li><span>About Us</span></li>
+                                <li><span>Services</span></li>
+                                <li><span>Blog Posts</span></li>
+                                <li><span>Contact Us</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 right">
+                            <h3>Contact Info</h3>
+                            <ul>
+                                <li>10001, 5th Avenue, #32841 block, USA</li>
+                                <li><a href="">+1223 456 790</a></li>
+                                <li><a href="">info@example.com</a></li>
+                                <li><a href="">www.example.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3  C-workDay">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li>
+                            <div>Monday</div>
+                            <div>9:00 - 18:00</div>
+                        </li>
+                        <li>
+                            <div>Tuesday</div>
+                            <div>10:00 - 19:00</div>
+                        </li>
+                        <li>
+                            <div>Wednesday</div>
+                            <div>8:00 - 17:00</div>
+                        </li>
+                        <li>
+                            <div>Thursday</div>
+                            <div>10:00 - 19:00</div>
+                        </li>
+                        <li>
+                            <div>Friday</div>
+                            <div>10:00 - 19:00</div>
+                        </li>
+                        <li>
+                            <div>Saturday</div>
+                            <div>10:00 - 19:00</div>
+                        </li>
+                        <li>
+                            <div>Sunday</div>
+                            <div>Closed</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row footer">
+                <p>© 2021 Dress-Up. All rights reserved. <a href="#">网页模板</a></p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+
+</body>
+<script>
+    //添加类名，删除其他所有类名，判断title的值对不对
+    //点击上一张判断
+    var cons = 0
+    function swiperMove(num) {
+        $($(".swiper").find(".Img")[num]).css({
+            backgroundImage: "url(./img/b" + (num + 1) + ".jpg)"
+        })
+            .addClass("active")
+            .siblings()
+            .removeClass("active")
+            .mousedown(function (event) {
+                var downX = event.pageX
+                var offwidth = event.target.offsetWidth
+                console.log(event.pageX,event.target.offsetWidth)
+                $(this).mousemove(function(event){
+                    console.log(event.pageX - offwidth)
+                    // if(event.pageX){
+                    // }
+                })
+            });
+    }
+    swiperMove(cons)
+    function RightMove() {
+        cons++
+        if (cons >= $(".swiper").find(".Img").length) {
+            cons = 0
+        }
+        swiperMove(cons)
+    }
+
+    $(".sw-Btn").find(".btnRight").click(
+        function () {
+            RightMove()
+        }
+    )
+    $(".sw-Btn").find(".btnLeft").click(function () {
+        cons--
+        if (cons <= 0) {
+            cons = ($(".swiper").find(".Img").length - 1)
+        }
+        swiperMove(cons)
+    })
+    setInterval(function () {
+        RightMove()
+    }, 3000)
+
+    window.onscroll = function () {
+        var t = document.documentElement.scrollTop || document.body.scrollTop;
+        // var Nav = document.getElementById('nav')
+        var Nav = document.querySelector(".nav")
+        var Upbtn = document.getElementById('Upbtn')
+        var col = document.querySelector('.nav .text')
+        if (t >= 100) {
+            Nav.style.background = '#fff';
+            col.style.color = '#000';
+            Nav.style.transition = 'all .2s ease-in-out';
+            Upbtn.style.display = 'flex';
+            Upbtn.style.transition = 'all .2s ease-in-out';
+
+        }
+        else {
+            Nav.style.background = 'transparent';
+            Nav.style.transition = 'all .2s ease-in-out';
+            col.style.color = '#fff';
+            Upbtn.style.display = 'none';
+            Upbtn.style.transition = 'all .2s ease-in-out';
+            Upbtn.onclick = function () {
+                Animation(
+                    Upbtn, 400);
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+
+            }
+        }
+    }
+
+    $(".Up-btn").on({
+        click: function () {
+            $("html").animate({
+                scrollTop: 0
+            }, 400)
+        }
+    })
+</script>
+
+</html>
