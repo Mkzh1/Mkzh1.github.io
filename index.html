@@ -5,21 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./Css/index.css">
 </head>
 <body>
-    <nav>
+    <!-- <img style="opacity: 0;" src="http://43.54.215.110/img/122.jpg" alt=""> -->
+    <div class="loadWindow">
+        <div class="GradualBox">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h1>页面加载中...</h1>
+    </div>
+    <!-- <nav>
         这里是导航栏
-    </nav>
+    </nav> -->
     <div>
-        <a href="./Ajax/index.html">Ajax</a>
+        <h3>交互网页</h3>
+        <a href="./Ajax/index.html">漫画</a>
+        <h3>静态网站与响应式网站</h3>
         <a href="./Bootstrap/B1/index.html">B1</a>
-        <a href="./Bootstrap/B2/index.html">B2</a>
+        <a href="./Bootstrap/B2/fuke2.html">B2</a>
+        <a href="./Bootstrap/Web360/360web.html">360浏览器</a>
+        <a href="./3Dweb/3Dphoto/index.html">3D相册</a>
+        <h3>闲时类</h3>
         <a href="./Clock/blockClock.html">方块时钟</a>
-        <a href="./Clock/CountDown.html">剩余时间的时钟</a>
+        <a href="./Clock/CountDown.html">倒计时时钟</a>
         <a href="./Musicplay/music.html">音乐播放器</a>
+        <a href="./accordion/index.html">手风琴</a>
+        <h3>游戏类</h3>
+        <a href="./NotWithe/Nomore/fangkuai.html">白方块</a>
+        <a href="./findDifference/index.html">找不同</a>
+        <a href="./luckDraw/index.html">吃什么抽奖</a>
+        <a href="./memoryCard/index.html">记忆卡片</a>
+        <a href="./NotWithe/Nomore/fangkuai.html">别踩白块</a>
+        <a href="./WhackAMole/打地鼠.html">打鲲鲲</a>
     </div>
-    <div>
+    <!-- <div>
         脚注
-    </div>
+    </div> -->
+
+    <script>
+        window.onload = function(){
+            setTimeout(function () {
+                document.querySelector(".loadWindow").style.opacity = "0"
+                document.querySelector(".loadWindow").style.visibility = "hidden"
+            },500)
+        }
+    </script>
 </body>
 </html>

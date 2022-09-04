@@ -10,10 +10,24 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
-
+    <link rel="stylesheet" href="../Css/index.css">
 </head>
 
 <body>
+    <div class="loadWindow">
+        <div class="GradualBox">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h1>页面加载中...</h1>
+    </div>
     <section class="MusicTop">
         <div class="nav">
             <div class="header">
@@ -27,20 +41,20 @@
                     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 Img">
                         <img src="./image/bj.gif" alt="">
                     </div>
-
-
-
-                    
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 Text">
                     </div>
-
                 </div>
             </div>
             <ul class="list">
             </ul>
             <div class="play">
                 <div class="jindutiao">
-                    <input type="range">
+                    <div class="start">00:00</div>
+                    <div class="mark"></div>
+                    <div class="dark"></div>
+                    <input type="range" value="0">
+                    <div class="end"></div>
+                    <div class="marks" style="width: 100%;"></div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 left">
                     <i class="fa fa-backward Up" aria-hidden="true" title="Up"></i>
@@ -50,216 +64,27 @@
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 right">
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 botton">
-                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                    <i class="fa fa-random" aria-hidden="true"></i>
-                    <i class="fa fa-refresh" aria-hidden="true"></i>
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <i class="fa fa-heart-o" title="" aria-hidden="true"></i>
+                    <i class="fa fa-random" title="" aria-hidden="true"></i>
+                    <i class="fa fa-refresh" title="" aria-hidden="true"></i>
+                    <i class="fa fa-ellipsis-h" title="" aria-hidden="true">
+                    </i>
                 </div>
-
+                <!-- <div class="volume">
+                    <input type="range" value="0">
+                </div> -->
             </div>
         </div>
     </section>
     <script>
-        $(".bars").click(function () {
-            $(".header").toggleClass("active")
-            $(".play").toggleClass("active")
-        })
-        function upOrDown() {
-            $(".header").toggleClass("active")
-            $(".play").toggleClass("active")
+        window.onload = function () {
+            setTimeout(function () {
+                document.querySelector(".loadWindow").style.opacity = "0"
+                document.querySelector(".loadWindow").style.visibility = "hidden"
+            }, 500)
         }
-        $(".cont").click(function () {
-            upOrDown()
-        })
-        $(".play .botton").find("i").click(function () {
-            $(this).toggleClass("cor")
-        })
-
     </script>
-    <script>
-        var music = [{
-            id: 1,
-            name: "Oops",
-            time: "03:52",
-            love: false
-        },
-        {
-            id: 2,
-            name: "Home(feat.Bonn)",
-            time: "03:59",
-            love: false
-        },
-        {
-            id: 3,
-            name: "Home(Silque Remix)",
-            time: "03:06",
-            love: false
-        },
-        {
-            id: 4,
-            name: "Glitch",
-            time: "03:05",
-            love: false
-        },
-        {
-            id: 5,
-            name: "WIEE",
-            time: "03:23",
-            love: false
-        },
-        {
-            id: 6,
-            name: "水花",
-            time: "02:30",
-            love: false
-        }
-        ];
-        var audio = document.createElement("audio")
-        
-        var numId
-        var move = 1;
-        var open = false
-        var audioValue = 0
-        music.forEach(function (el) {
-            $(".list").append(' <li class="list-li" data-id=' + el.id + '> <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">' + el.id + '</div>'
-                + '<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">' + el.name + '</div><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">' + el.time + '</div>'
-                + '<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 love"><i class="fa fa-heart-o" aria-hidden="true"></i></div></li>')
-        });
-        $(".list").on("dblclick", "li", function () {
-            numId = $(this).data("id") - 1
-            liner(numId)
-            upOrDown()
-            $(".play .left").find(".Up").click(function () {
-                numId = numId - 1
-                if (numId < 0) {
-                    numId = (music.length - 1)
-                }
-                liner(numId)
-            })
-            audio.onended = function () {
-                over()
-            };
-            //未做 随机音乐 传值进来，如果随机按钮为true时则播放完成下一首或者上一首下一首生成随机数添加参数
-            function over() {
-                numId = numId + 1
-                if (numId > (music.length - 1)) {
-                    numId = 0
-                }
-                liner(numId)
-            }
-            $(".play .left").find(".Down").click(function () {
-                over()
-            })
-       
-            setTimeout(function (params) {
-                var alltime = audio.duration
-                var min = Math.floor(audio.duration/60)
-                var sod = Math.floor((audio.duration/60-Math.floor(audio.duration/60))*60)
-                // console.log(alltime,min,sod);
-                // audio.currentTime()
-               
-                var times = setInterval(function(){
-                    if(audioValue=alltime){
-                        clearInterval(times)
-                    }
-                    console.log(audioValue)
-                    audioValue =  audio.currentTime
-                },1000)
-                // console.log(audio.currentTime);
-                $("input[type=range]").css("opacity","1").attr("max",alltime).attr("value",audioValue)
-            },100)
-            // var alltime = audio.duration
-            
-        })
-        chushihua(0)
-        function chushihua(num) {
-            $(".header .cont .Text").append("<h3>" + music[num].name + "</h3>")
-            audio.src = "./music/music" + (num + 1) + ".mp3"
-            $(".play .right").text(music[num].name)
-            $(".header .cont .Text").html("")
-            $(".header .cont .Text").append("<h3>" + music[num].name + "</h3>")
-            $(".play .right").html("")
-            $(".play .right").text(music[num].name)
-        }
-
-        function liner(num) {
-            $(".header .cont .Text").append("<h3>" + music[num].name + "</h3>")
-            audio.src = "./music/music" + (num + 1) + ".mp3"
-            $(".play .right").text(music[num].name)
-            audio.play()
-            $(".play .op").removeClass("fa-play fa-pause").addClass("fa-pause")
-            $(".header .cont .Text").html("")
-            $(".header .cont .Text").append("<h3>" + music[num].name + "</h3>")
-            $(".play .right").html("")
-            $(".play .right").text(music[num].name)
-        }
-
-        $(".play .op").click(function () {
-            if ($(this)[0].className.includes("fa-play")) {
-                // console.log($(this))
-                audio.play()
-                // console.log(open);
-                $(this).removeClass("fa-play").addClass("fa-pause")
-            } else if ($(this)[0].className.includes("fa-pause")) {
-                $(this).removeClass("fa-pause").addClass("fa-play")
-                audio.pause()
-                // console.log(open);
-            }
-        })
-        // $(".play .op").click(function () {
-        //     if (!document.querySelector("audio")) {
-        //         var ifNum = 0
-        //         liner(ifNum)
-        //         console.log(ifNum);
-        //         open = false
-        //         $(".play .op").click(function () {
-        //             if (open) {
-        //                 // console.log($(this))
-        //                 audio.play()
-        //                 open = false
-        //                 $(this).removeClass("fa-play").addClass("fa-pause")
-        //             } else {
-        //                 $(this).removeClass("fa-pause").addClass("fa-play")
-        //                 audio.pause()
-        //                 open = true
-        //             }
-        //         })
-        //         $(".play .left").find(".Up").click(function () {
-        //             ifNum = ifNum - 1
-        //             if (ifNum < 0) {
-        //                 ifNum = (music.length - 1)
-        //             }
-        //             liner(ifNum)
-        //             // console.log(ifNum);
-        //         })
-        //         $(".play .left").find(".Down").click(function () {
-        //             ifNum = ifNum + 1
-        //             if (ifNum > (music.length - 1)) {
-        //                 ifNum = 0
-        //             }
-        //             liner(ifNum)
-        //             // console.log(ifNum);
-        //         })
-        //     } else {
-        //         $(".play .op").click(function () {
-        //             if ($(this)[0].className.includes("fa-play")) {
-        //                 // console.log($(this))
-        //                 audio.play()
-        //                 console.log(open);
-        //                 $(this).removeClass("fa-play").addClass("fa-pause")
-        //             } else if ($(this)[0].className.includes("fa-pause")) {
-        //                 $(this).removeClass("fa-pause").addClass("fa-play")
-        //                 audio.pause()
-        //                 console.log(open);
-        //             }
-        //         })
-        //     }
-        // })
-        $(".list .list-li .love").find("i").click(function () {
-            $(this).toggleClass(["fa-heart-o", "fa-heart"]).css("color", "#f00")
-        })
-
-    </script>
+    <script src="./js/music.js"></script>
 
 </body>
 

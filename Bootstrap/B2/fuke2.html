@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../Css/index.less">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
@@ -15,10 +17,25 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="./css/anli.css">
     <link rel="stylesheet" href="./css/anli@media.css">
+    <link rel="stylesheet" href="../../Css/index.css">
     <!-- <link rel="stylesheet" href="./css/anli@media.css"> -->
 </head>
 
 <body>
+    <div class="loadWindow">
+        <div class="GradualBox">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h1>页面加载中...</h1>
+    </div>
     <div class="Up-btn" id="Upbtn">
         <i class="fa fa-level-up" aria-hidden="true"></i>
     </div>
@@ -54,28 +71,39 @@
                                 <script>
                                     // $(this).removeClass("fa-moon-o").addClass("fa-sun-o")
                                     var off = true
-                                    $(".inpBtn .row .icon").find("i").click(function () {
-                                        console.log(off);
-                                        if (off) {
-                                            $(this)[0].className = "fa fa-sun-o"
-                                            off = false
-                                            $("body").css({
-                                                background: "#000",
-                                                color: "#fff"
-                                            }).children().css({
-                                                color: "#fff"
-                                            }).find(".Clients .content .row div").css("background", "#000")
-                                        } else {
-                                            $(this)[0].className = "fa fa-moon-o"
-                                            off = true
-                                            $("body").css({
-                                                background: "#fff",
-                                                color: "#000"
-                                            }).children().css({
-                                                color: "#000"
-                                            }).find(".Clients .content .row").find("div").css("background", "#fff")
+                                    var openlode
+                                    var snicon = $(".inpBtn .row .icon i")
+                                    snicon.click(function () {
+                                        if ($(this)[0].title == "open" || $(this)[0].title == "") {
+                                            open()
+
+
+                                        } else if ($(this)[0].title == "close" || $(this)[0].title == "") {
+                                            close()
+
                                         }
                                     })
+                                    function open() {
+                                        snicon.removeClass("fa-moon-o").addClass("fa-sun-o").attr("title", "close")
+                                        $("body").css({ "background": "#000", "color": "#fff" })
+                                            .find(".nav")
+                                            .addClass("active")
+                                            .end()
+                                            .find(".Services").addClass("active")
+                                            .end().find(".Clients").addClass("active")
+                                            .end().find(".Blog").addClass("active")
+                                    }
+                                    function close() {
+                                        snicon.removeClass("fa-sun-o").addClass("fa-moon-o").attr("title", "open")
+                                        $("body").css({ "background": "#fff", "color": "#000" })
+                                            .find(".nav")
+                                            .removeClass("active")
+                                            .end()
+                                            .find(".Services").removeClass("active")
+                                            .end().find(".Clients").removeClass("active")
+                                            .end().find(".Blog").removeClass("active")
+
+                                    }
                                 </script>
                             </div>
                             <div class="hidden-lg hidden-md x-btn hamburger">
@@ -112,7 +140,6 @@
                             <li>Services</li>
                             <li>Contact</li>
                         </ul>
-
                         <div class="row">
 
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -136,7 +163,7 @@
         </div>
     </section>
     <section class="swiper">
-        <div class="Img"draggable="false">
+        <div class="Img" draggable="false">
             <div class="sw-Btn">
                 <span class="btnLeft glyphicon glyphicon-chevron-left"></span>
                 <span class="btnRight glyphicon glyphicon-chevron-right"></span>
@@ -158,7 +185,7 @@
                 </div>
             </div>
         </div>
-        <div class="Img"draggable="false">
+        <div class="Img" draggable="false">
             <div class="sw-Btn">
                 <span class="btnLeft glyphicon glyphicon-chevron-left"></span>
                 <span class="btnRight glyphicon glyphicon-chevron-right"></span>
@@ -180,7 +207,7 @@
                 </div>
             </div>
         </div>
-        <div class="Img"draggable="false">
+        <div class="Img" draggable="false">
             <div class="sw-Btn">
                 <span class="btnLeft glyphicon glyphicon-chevron-left"></span>
                 <span class="btnRight glyphicon glyphicon-chevron-right"></span>
@@ -202,7 +229,7 @@
                 </div>
             </div>
         </div>
-        <div class="Img"draggable="false">
+        <div class="Img" draggable="false">
             <div class="sw-Btn">
                 <span class="btnLeft glyphicon glyphicon-chevron-left"></span>
                 <span class="btnRight glyphicon glyphicon-chevron-right"></span>
@@ -327,10 +354,10 @@
                 <div class="col-xs-12 col-sm-6 col-md-4  Cli-footer">
                     <div class="footerBox">
                         <div class="userimg">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            <span>01</span>
+                            <i class="fa fa-scissors" aria-hidden="true"></i>
+                            <span>02</span>
                         </div>
-                        <h3>Unique Design</h3>
+                        <h3>Custom Tailoring</h3>
                         <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit. doloret quas saepe autem, dolor
                             set. </p>
                         <span class="Cli-btn">
@@ -341,10 +368,10 @@
                 <div class="col-xs-12  col-sm-6 col-md-4  Cli-footer col-sm-offset-3 col-md-offset-0">
                     <div class="footerBox">
                         <div class="userimg">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            <span>01</span>
+                            <i class="fa fa-wheelchair-alt" aria-hidden="true"></i>
+                            <span>03</span>
                         </div>
-                        <h3>Unique Design</h3>
+                        <h3>Wedding Services</h3>
                         <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit. doloret quas saepe autem, dolor
                             set. </p>
                         <span class="Cli-btn">
@@ -361,7 +388,7 @@
         <div class="container">
 
             <div class="col-xs-12 col-sm-12 col-md-6 leftData">
-                <h3>25 years of experience</h3>
+                <h3>25 <span>years</span> of experience</h3>
                 <p>At corrupti odit At iure facere, porro repellat officia quas, dolores magnam assumenda soluta odit
                     harum maiores fugiat accusamus eos nulla. Iure voluptatibus explicabo officia.</p>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. At, corrupti odit? At iure facere, porro
@@ -403,7 +430,7 @@
                 <div class="topBox">
                     <div class="col-xs-12 col-sm-12 col-md-6 left">
                         <div class="smLeftBox">
-                            <h1>Our Works</h1>
+                            <h1><span>Our</span> Works</h1>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur hic odio
                                 consequatur.Lorem
                                 ipsum dolor sit amet consectetur adipisicing elit. Velit beatae laudantium rem ullam
@@ -642,15 +669,17 @@
 
     </section>
 
-
-
-
-
-
 </body>
 <script>
+    window.onload = function () {
+        setTimeout(function () {
+            document.querySelector(".loadWindow").style.opacity = "0"
+            document.querySelector(".loadWindow").style.visibility = "hidden"
+        }, 1000)
+    }
     //添加类名，删除其他所有类名，判断title的值对不对
     //点击上一张判断
+
     var cons = 0
     function swiperMove(num) {
         $($(".swiper").find(".Img")[num]).css({
@@ -662,8 +691,8 @@
             .mousedown(function (event) {
                 var downX = event.pageX
                 var offwidth = event.target.offsetWidth
-                console.log(event.pageX,event.target.offsetWidth)
-                $(this).mousemove(function(event){
+                console.log(event.pageX, event.target.offsetWidth)
+                $(this).mousemove(function (event) {
                     console.log(event.pageX - offwidth)
                     // if(event.pageX){
                     // }
@@ -705,16 +734,18 @@
             Nav.style.background = '#fff';
             col.style.color = '#000';
             Nav.style.transition = 'all .2s ease-in-out';
-            Upbtn.style.display = 'flex';
-            Upbtn.style.transition = 'all .2s ease-in-out';
+            Upbtn.style.visibility = 'initial';
+            Upbtn.style.opacity = '1'
+            Upbtn.style.transform = 'translateY(0)';
 
         }
         else {
             Nav.style.background = 'transparent';
             Nav.style.transition = 'all .2s ease-in-out';
             col.style.color = '#fff';
-            Upbtn.style.display = 'none';
-            Upbtn.style.transition = 'all .2s ease-in-out';
+            Upbtn.style.visibility = 'hidden';
+            Upbtn.style.opacity = '0'
+            Upbtn.style.transform = 'translateY(100px)';
             Upbtn.onclick = function () {
                 Animation(
                     Upbtn, 400);

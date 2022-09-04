@@ -1,0 +1,95 @@
+html{
+    font-size: calc(100vw / 375);
+}
+*{
+    margin: 0;
+}
+// body{
+//     background-color: aquamarine;
+// }
+.loadWindow{
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all .3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    z-index: 999999;
+    /* opacity: 1; */
+}
+.GradualBox {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.loadWindow h1{
+    /* width: 100vw; */
+    font-size: 5rem;
+    text-align: center;
+    color: black;
+}
+.GradualBox div {
+    width: 33.33%;
+    height: 33.33%;
+    background-color: rgb(98, 162, 218);
+    animation: GradualBox 1s infinite;
+    /* transform-origin:right top; */
+    
+}
+
+.GradualBox div:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.GradualBox div:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.GradualBox div:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.GradualBox div:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.GradualBox div:nth-child(5) {
+    animation-delay: 0.3s;
+}
+
+.GradualBox div:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.GradualBox div:nth-child(7) {
+    animation-delay: 0s;
+}
+
+.GradualBox div:nth-child(8) {
+    animation-delay: 0.2s;
+}
+
+.GradualBox div:nth-child(9) {
+    animation-delay: 0.3s;
+}
+
+@keyframes GradualBox {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

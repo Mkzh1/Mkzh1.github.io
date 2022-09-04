@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="../../Css/index.less">
+
+    <link rel="stylesheet" href="./web360css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./web360css/web360.css">
+    <link rel="stylesheet" href="./web360css/animate.css">
+    <link rel="stylesheet" href="./web360css/animate.min.css">
+    
+
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+            background-color: #000 !important;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+    <link rel="stylesheet" href="../../Css/index.css">
+</head>
+
+<body>
+    <div class="loadWindow">
+        <div class="GradualBox">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h1>页面加载中...</h1>
+    </div>
+    <!-- Swiper -->
+    <div class="nav">
+        <div class="navBox">
+            <div class="Snav">
+                <div class="img"><img src="./web360img/nav.png" alt=""></div>
+                <ul class="list">
+                    <li>论坛</li>
+                    <li>扩展</li>
+                    <li>Mac版</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide x-Img">
+                <img class="img-mu" src="./web360img/bj4.png" alt="">
+                <img class="img-min" src="./web360img/bj3.png" alt="">
+                <img class="img-wei" src="./web360img/bj2.png" alt="">
+                <div class="title">
+                    <h1 class="left wow fadeInDown animated" data-wow-delay="0.3s">畅快浏览 极致体验</h1>
+                    <h2 class="left wow fadeInDown animated" data-wow-delay="0.4s">全新Chrome内核浏览器，性能更强，速度更快</h2>
+                    <div class="aBtn">
+                        <a href="#" class="left wow fadeInDown animated" data-wow-delay="0.5s">32位版本</a>
+                        <a href="#" class="left wow fadeInDown animated" data-wow-delay="0.5s"><img
+                                src="./web360img/win.png" alt="">64位版本</a>
+                    </div>
+                </div>
+                <ul class="stars">
+                    <li></li>
+                </ul>
+            </div>
+            <div class="swiper-slide x-Img1">
+                <video style="width:100vw;height:100vh;background-color: #000;" src="./web360img/video1.mp4" autoplay
+                    loop></video>
+                <div class="Xbox">
+                    <h1 data-wow-delay="1.5s">极速</h1>
+                    <div data-wow-delay="1.5s"></div>
+                    <h2 data-wow-delay="1.5s">全新Chromium内核</h2>
+                    <h5 data-wow-delay="1.5s">性能强劲，快如闪电</h5>
+                    <a data-wow-delay="1.5s" href="#">立即体验</a>
+                </div>
+            </div>
+            <div class="swiper-slide x-Img1">
+                <video style="width:100vw;height:100vh;background-color: #000;" src="./web360img/video2.mp4" autoplay
+                    loop></video>
+                <div class="Xbox">
+                    <h1 data-wow-delay="1.5s">机酷</h1>
+                    <div data-wow-delay="1.4s"></div>
+                    <h2 data-wow-delay="1.3s">黑夜炫黑模式</h2>
+                    <h5 data-wow-delay="1.2s">定义酷，定义你</h5>
+                    <a data-wow-delay="1.1s" href="#">立即体验</a>
+                </div>
+            </div>
+            <div class="swiper-slide x-Img1">
+                <video style="width:100vw;height:100vh;background-color: #000;" src="./web360img/video3.mp4" autoplay
+                    loop></video>
+                <div class="Xbox">
+                    <h1 data-wow-delay="1.5s">极安全</h1>
+                    <div data-wow-delay="1.4s"></div>
+                    <h2 data-wow-delay="1.3s">DNS加密防劫持</h2>
+                    <h5 data-wow-delay="1.2s">安全升级,肆意无忌</h5>
+                    <a data-wow-delay="1.1s" href="#">立即体验</a>
+                </div>
+            </div>
+            <div class="swiper-slide x-Img1 last">
+                <video style="width:100vw;height:100vh;background-color: #000;" src="./web360img/video4.mp4" autoplay
+                    loop></video>
+                <div class="Xbox">
+                    <h1 data-wow-delay="1.5s">极视界</h1>
+                    <div data-wow-delay="1.4s"></div>
+                    <h2 data-wow-delay="1.3s">4K高清视频播放</h2>
+                    <h5 data-wow-delay="1.2s">还原真实之美,尽显万物本色</h5>
+                    <a data-wow-delay="1.1s" href="#">立即体验</a>
+                </div>
+                <div class="footer">
+                    <div class="footerBox">
+                        Copyright © 2005-2022 360.CN All Rights Reserved 360互联网安全中心 隐私政策 京ICP证0080047号[京ICP备08010314号-6]
+                    </div>
+                    <p class="p2">网站举报电话：4006693600 举报邮箱：kefu@360.cn 互联网违法和不良信息举报中心：http://www.12377.cn</p>
+                    <p class="p3"><span><img src="./web360img/pliace.png" alt=""></span>京公网安备 11000002000006号</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="./web360css/swiper-bundle.min.js"></script>
+    <script src="./web360css/wow.js"></script>
+    <script src="./web360css/wow.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        window.onload = function () {
+            setTimeout(function () {
+                document.querySelector(".loadWindow").style.opacity = "0"
+                document.querySelector(".loadWindow").style.visibility = "hidden"
+            }, 500)
+        }
+        var swiper = new Swiper(".mySwiper", {
+            direction: "vertical",
+            speed: 1000,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            mousewheel: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+        var move = _.throttle(function (event) {
+            if (event) {
+                $(swiper.slides).find(".Xbox").children().removeClass("left wow fadeInDown animated")
+                var nowBox = swiper.realIndex
+                $(swiper.slides[nowBox]).find(".Xbox").children().addClass("left wow fadeInDown animated")
+            } else {
+
+            }
+        }, 1000)
+        window.onmousewheel = move
+
+    </script>
+</body>
+
+</html>

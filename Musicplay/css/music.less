@@ -26,7 +26,7 @@ body {
 
 .MusicTop {
     width: 500px;
-    height: 800px;
+    height: 750px;
     margin: 0 auto;
     background-color: rgb(0, 0, 0);
     box-shadow: 0 0 20px 0 rgb(130, 130, 130);
@@ -66,7 +66,6 @@ body {
                     .Text {
                         opacity: 0;
                     }
-
                 }
 
                 &~.list {
@@ -166,6 +165,10 @@ body {
                 flex-direction: column;
                 justify-content: center;
 
+                .jindutiao {
+                    top: 30px;
+                }
+
                 .left {
                     padding: 0;
                     display: inline-block;
@@ -177,6 +180,11 @@ body {
                 .right {
                     text-align: center;
                     margin-top: 30px;
+
+                    span {
+                        display: block;
+                        font-size: 20px;
+                    }
                 }
 
                 .botton {
@@ -192,17 +200,56 @@ body {
 
             .jindutiao {
                 position: absolute;
-                width: 95%;
-                height: 10px;
+                width: 80%;
+                height: 6px;
                 left: 50%;
                 transform: translateX(-50%);
                 top: -20px;
                 transition: all .3s;
-                input{
-                    opacity: 0;
+                opacity: 0;
+                display: flex;
+                align-items: center;
+                .start {
+                        transform: translateX(calc(-100% - 5px));
                 }
-                // background-color: rgb(255, 95, 95);
-                // border-radius:250px;
+
+                .end {
+                    position: absolute;
+                    right: 0;
+                    transform: translateX(calc(100% + 5px));
+                }
+
+                input {
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    position:absolute;
+                }
+
+                .mark {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #fff;
+                    border-radius: 50px;
+                    opacity: 1;
+
+                }
+
+                .dark {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 0%;
+                    z-index: 1;
+                    height: 100%;
+                    background-color: rgb(176, 166, 166);
+                    border-radius: 50px;
+                }
             }
 
             .left {
@@ -218,6 +265,11 @@ body {
             .right {
                 text-align: right;
                 font-size: 20px;
+
+                span {
+                    display: block;
+                    font-size: 15px;
+                }
             }
 
             .botton {
@@ -235,7 +287,22 @@ body {
                 i {
                     cursor: pointer;
                     transition: all .5s;
+
+
                 }
+            }
+
+            .volume {
+                width: auto;
+
+                input {
+                    height: 100px;
+                    // transform: rotate(90deg);
+                }
+
+                right: 0;
+                bottom: 0;
+                position: absolute;
             }
         }
     }

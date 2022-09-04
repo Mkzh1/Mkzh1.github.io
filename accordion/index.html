@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .backimg {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            background-image: url(../../image/2.jpg);
+            background-repeat:no-repeat ;
+            background-position: center;
+            background-size: 100% 100%;
+            filter: blur(2.3px);
+            transition: all .3s;
+            
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .accordion {
+            width: 600px;
+            height: 300px;
+            /* background-color: aqua; */
+            display: flex;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            box-shadow:2px 2px 20px 1px aliceblue ;
+        }
+
+        .accordion div {
+            width: 40px;
+            height: 100%;
+            background-position: center;
+            background-size: auto 100%;
+            transition: all .3s;
+        }
+
+        .accordion div:nth-child(1) {
+            background-image: url(../../image/1.jpg);
+        }
+
+        .accordion div:nth-child(2) {
+            width: 480px;
+            background-image: url(../../image/2.jpg);
+        }
+
+        .accordion div:nth-child(3) {
+
+            background-image: url(../../image/3.jpg);
+        }
+
+        .accordion div:nth-child(4) {
+            background-image: url(../../image/4.jpg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="accordion">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="backimg"></div>
+</body>
+<script>
+    var accEle = document.querySelectorAll('.accordion div')
+    var acc = Array.prototype.slice.call(accEle)
+    var backimg = document.querySelector('.backimg')
+    acc.forEach(
+        function (a, i) {
+            accEle[i].onclick = function () {
+                // console.log(i)
+                acc.forEach(function (data, index) {
+                    console.log(i, index)
+                    if (i === index) {
+                        acc[index].style.width = "480px"
+                        backimg.style['background-image'] = "url(../../image/" + (index + 1) + ".jpg)"
+
+                        console.log("yes")
+                    } else {
+                        acc[index].style.width = "40px"
+                        console.log("no")
+                    }
+                })
+            }
+        }
+    )
+
+
+</script>
+
+</html>

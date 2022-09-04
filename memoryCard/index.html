@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta Document="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .list {
+        list-style: none;
+        display: flex;
+        width: 500px;
+        flex-wrap: wrap;
+        background-color: aliceblue;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .list li {
+        width: calc(25% - 20px);
+        height: 105px;
+        box-sizing: border-box;
+        background-color: aquamarine;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: aquamarine;
+        font-size: 45px;
+        transition: all .3s;
+    }
+
+    .list li.active {
+        color: rgb(124, 124, 124);
+        transition: all .3s;
+
+    }
+
+    .list li.act {
+        color: rgb(255, 255, 255);
+        transition: all .3s;
+        background-color: rgb(62, 165, 255);
+
+    }
+</style>
+
+<body>
+    <ul class="list">
+    </ul>
+    <script>
+        var list = document.querySelector(".list")
+        var memory = [1, 2,3,4,5,6,7,8]
+        double(ran(memory), list)
+        function ran(Arr) {
+            var arr = []
+            Arr.forEach(function (e) {
+                arr.push(e)
+                arr.push(e)
+            })
+            arr.sort(function () {
+                return Math.random() - 0.5
+            })
+            return arr
+        }
+        // console.log(ran(memory))
+        console.log()
+        function double(arr, onC) {
+            arr.forEach(function (ele) {
+                var listLi = document.createElement("li")
+                listLi.innerText = ele
+                onC.appendChild(listLi)
+                // console.log(ele);
+
+                listLi.onclick = function () {
+                    listLi.classList.add("active");
+                    // console.log(list.querySelectorAll("li"))
+                    var liPush = []
+                    var listChild = list.children
+                    for (var i = 0; i < listChild.length; i++) {
+                        if (listChild[i].classList.contains("active")) {
+                            liPush.push(listChild[i])
+                        }
+                    }
+                    if (liPush.length === 2) {
+                        // console.log(liPush[0].innerText,liPush[1].innerText);
+                        setTimeout(
+                            function () {
+                                if (liPush[0].innerText == liPush[1].innerText) {
+                                    liPush[0].classList.add("act")
+                                    liPush[1].classList.add("act")
+                                }
+                                liPush[0].classList.remove("active")
+                                liPush[1].classList.remove("active")
+                            },500)}
+                    console.log(liPush)
+                    
+            }
+            });
+        }
+//每次点击添加一个类名，添加完成在整个盒子查找拥有类名的两个盒子进行判断，判断正确则使两个盒子类名删除并转换，否则使两个盒子类名删除
+//由于删除类名会使其状态丢失，所以需要延迟执行，使用settimeout使其延迟执行
+//但是存在bug，点得太快会使判断中的数组添加超过2个，则让内容无法继续执行
+
+
+
+    </script>
+</body>
+
+</html>

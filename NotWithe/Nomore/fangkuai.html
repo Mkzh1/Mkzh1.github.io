@@ -9,7 +9,22 @@
 </head>
 <link rel="stylesheet" href="./css/fangkuai.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<link rel="stylesheet" href="../../Css/index.css">
 <body>
+    <div class="loadWindow">
+        <div class="GradualBox">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h1>页面加载中...</h1>
+    </div>
     <div class="stage">
         <div class="pass">
             <i class="fa fa-play" aria-hidden="true"></i>
@@ -38,6 +53,15 @@
         </div>
     </div>
 </body>
+<script>
+    window.onload = function () {
+        setTimeout(function () {
+            document.querySelector(".loadWindow").style.opacity = "0"
+            document.querySelector(".loadWindow").transition = "all .3s linear"
+            document.querySelector(".loadWindow").style.visibility = "hidden"
+        }, 500)
+    }
+</script>
 <script src="./js/fangkuai.js"></script>
 
 </html>

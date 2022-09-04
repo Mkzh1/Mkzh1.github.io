@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .back {
+            width: 500px;
+            height: 500px;
+            background-color: rgb(108, 186, 255);
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        .back .Backcolor {
+            flex-wrap: wrap;
+            border-radius: 50%;
+        }
+    .title{
+        width: 200px;
+        text-align: center;
+        padding: 20px;
+        background-color: aliceblue;
+        margin: 0 auto;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="title"></div>
+    <div class="back"></div>
+    <script>
+
+        var back = document.querySelector(".back")
+        var backwidth = back.offsetWidth
+        var level = 1;
+        var title = document.querySelector('.title')
+        levelUp(level)
+        function levelUp(level) {
+            title.innerText = "当前关卡是第"+level+"关"
+            
+            var ran = "#" + Math.random().toString(16).slice(-6)
+            console.log(ran)
+            for (var i = 0; i < Math.pow(level + 2, 2); i++) {
+                var backBox = document.createElement("div")
+                backBox.classList.add("Backcolor")
+                back.appendChild(backBox)
+                document.querySelectorAll(".back div")[i].style.backgroundColor = ran
+                backBox.style.width = backwidth / (level + 2) + "px"
+            }
+            var ranBox = Math.ceil(Math.random() * (Math.pow(level + 2, 2) - 1))
+            var AllBack = document.querySelectorAll(".back div")
+            AllBack[ranBox].style.opacity = "0.3"
+            console.log(ranBox)
+            AllBack[ranBox].onclick = function () {
+                level++
+                back.innerHTML = " "
+                levelUp(level)
+                
+                // console.log(ranBox)
+                // AllBack[ranBox].innerText= "123"
+            }
+            console.log(level)
+        }
+
+        // for(外层的所有内容){
+        //    var opush = []
+        //    if(所有内容的子元素拥有成功之后的类名){
+        //        opush.push(拥有成功类名的子元素)
+        //    }
+        //    if(opush === 外层的所有内容.length){
+        //     需要弹窗的内容赋予一个类名
+        //    }
+        // }
+    </script>
+    </bodyr>
+
+</html>

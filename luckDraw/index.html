@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超级简易抽奖</title>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        }
+        .draw{
+            width: 300px;
+            height: 300px;
+            background-color: aquamarine;
+            margin: 0 auto;
+            display: flex; 
+            flex-wrap: wrap;
+        }
+        .draw div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: calc(33% - 20px);
+            box-sizing: border-box;
+            margin: 10px;
+            background-color: aliceblue;
+            transition: all .3s;
+            text-align: center;
+        }
+        .btn{
+            width: calc(33% - 20px);
+            box-sizing: border-box;
+            margin: 10px;
+            background-color: aliceblue;
+            cursor:pointer;
+
+        }
+        button:active{
+            background-color: rgb(130, 130, 130);
+        }
+        .draw .act{
+            background-color: rgb(130, 130, 130);
+            color: #fff;
+            transition: all .3s;
+        }
+        .jiangpin{
+            width: 300px;
+            height: 20px;
+            margin: 0 auto;
+
+            text-align: center;
+            background-color: antiquewhite;
+            padding: 20px;
+        }
+        .draw .bt:nth-child(1){order:1;}
+        .draw .bt:nth-child(2){order:2;}
+        .draw .bt:nth-child(3){order: 3;}
+        .draw .bt:nth-child(4){order:6;}
+        .draw .bt:nth-child(6){order: 9;}
+        .draw .bt:nth-child(7){order: 8;}
+        .draw .bt:nth-child(8){order: 7;}
+        .draw .bt:nth-child(9){order: 4;}
+        .draw .bt:nth-child(5){order: 5;}
+    </style>
+</head>
+<body>
+    <div class="jiangpin"></div>
+    <div class="draw">
+        <div class="act bt">汤饭</div>
+        <div class="bt">汤粉</div>
+        <div class="bt">饭堂</div>
+        <div class="bt">方便面</div>
+        <button class="btn bt">抽奖</button>
+        <!-- <button class="bt">抽奖</button> -->
+        <div class="bt">麻辣烫</div>
+        <div class="bt">面包</div>
+        <div class="bt">鲲鲲</div>
+        <div class="bt">云吞</div>
+    </div>
+</body>
+    <script>
+        // var btn = document.querySelector(".btn")
+        // var draw = document.querySelector(".draw")
+        // box = 9
+        // var drawBox = [
+        //         [1,1,1],
+        //         [1,0,1],
+        //         [1,1,1]
+        // ]
+        // var q=[]
+        // drawBox.forEach(function (row,rowi) {
+        //     row.forEach(function (item,index,arr) {
+        //         console.log(item,arr)
+        //         // q.push(item)
+        //         if(item){
+        //             var drawitem = document.createElement("div")
+        //             drawitem.classList.add("active")
+        //             draw.appendChild(drawitem)
+        //             // console.log(q)
+        //         }
+        //     })
+        // })
+        // console.log(q)
+        // q.findIndex(function (ww) {
+        //     // if(ww){
+        //         // q[ww]
+        //     // }
+        // })
+
+        // var drawBox = document.createElement("div")
+        // for(var i=0;i<4;i++){
+        //     var drawChild = document.createElement("div")
+        //     drawChild.classList.add("active")
+        //     draw.appendChild(drawBox)
+        //     drawBox.appendChild(drawChild)
+        // }
+
+        // draw.insertBefore(drawBox,btn)
+        // drawitem = draw.querySelectorAll("div");
+        // drawitem.forEach(function () {
+            
+        // });
+    </script>
+    <script>
+        var btn = document.querySelector(".btn")
+        var draw = document.querySelector(".draw")
+        var drawAll = draw.querySelectorAll(".draw div")
+        var jiangpin=document.querySelector(".jiangpin")
+        // var lastBox = document.createElement("div")
+        //假设使用for循环出9个盒子，其中第5个盒子添加点击事件，并给予类名btn，其余类名一致active，
+        //当点击类名为btn的盒子的时候，怎么走，通过二维数组排序成一维数组使用findindex查找每个值，当他为ture时
+        //添加一个新的类名 Newact 并且让他的背景颜色加深，未false时不执行，并且点击的同时使用定时器，时间为一个随机数（不低于6秒）
+        //在定时器里遍历当前数组中的每一个值，当判断找到ture时为他添加一个类名，在其中又使用延迟
+        //已知方法还有索引使盒子走方块形状，或者使用随机数在num设置，并且不超过当前盒子数量就可以达成目的
+        //01258763
+        // drawAll
+        var num = 0
+        var spend = 100
+        function start() {
+            console.log("执行中")
+            clearInterval(timeGo)
+            btn.style.cursor = "no-drop"
+            btn.onclick = null
+            var ranTime = '';
+            ranTime = parseInt(Math.random() * 15)
+                if(ranTime>=5 && ranTime !== ""){
+                    var newTime=ranTime
+                    newTimes = newTime*360
+                }else{
+                    var newTime=ranTime
+                    newTimes = newTime*360
+                    ranTime = Math.ceil(Math.random() * 10)
+                }
+            console.log(newTimes)
+            var timeGo=setInterval(function () {
+                 drawAll[num].classList.add("act")
+                 setTimeout(function () {
+                     drawAll[num].classList.remove("act")
+                     num++
+                     console.log(num)
+                     if(num>=drawAll.length){
+                         num=0
+                         console.log("重制")
+                     }
+                 },spend/2)
+             },spend)
+
+             setTimeout(function () {
+                 drawAll[num].classList.add("act")
+                 jiangpin.innerText ="今天吃"+drawAll[num].innerText
+                btn.style.cursor = "pointer"
+                btn.onclick = function () {
+                start()
+                }
+                num=0
+                clearInterval(timeGo)
+            },spend*5+newTimes)
+        }
+        btn.onclick = start
+
+
+    </script>
+    <script>
+        //不成功案例
+          // for (var  i= 0;  i< 9; i++) {
+        //     var box = document.createElement("div")
+        //     box.classList.add("active")
+        //     draw.appendChild(box)
+        // }
+        // console.log();
+        // // draw
+        // draw.querySelectorAll(".active").forEach(function (ele) {
+        //     var btn = ele[4]
+        //     // console.log(ele)
+        //     // ele[4].replaceChild(,btn)
+        // })
+               // function (){
+        //     clearInterval(timeGo)
+        //     var timeGo=setInterval(function () {
+        //      // clearTime(timeGo)
+        //          drawAll[num].classList.add("act")
+        //          setTimeout(function () {
+        //              drawAll[num].classList.remove("act")
+        //              num++
+        //              console.log(num)
+        //              if(num>=drawAll.length){
+        //                  num=0
+        //                  console.log("重制")
+        //              }
+        //          },500)
+        //      },1000)
+        // }
+
+        //    btn.onclick = function () {
+
+//             }
+
+// var ranTime = '';
+//             ranTime = parseInt(Math.random() * 15)
+//             // console.log(ranTime)
+//                 if(ranTime>=5 && ranTime !== ""){
+//                     // console.log(ranTime)
+//                     var newTime=ranTime
+//                     newTimes = newTime*360
+//                     console.log(newTimes)
+//                 }else{
+//                     var newTime=ranTime
+//                     newTimes = newTime*360
+//                     ranTime = Math.ceil(Math.random() * 10)
+//                 }
+//             console.log(newTimes)
+    </script>
+</html>

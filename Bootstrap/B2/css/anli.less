@@ -2,6 +2,12 @@
     margin: 0;
     padding: 0;
     border: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.bordered() {
+    background-color: rgba(255, 135, 135, 0.57);
+    // color: rgb(190, 190, 190);
 }
 
 // body{
@@ -11,9 +17,12 @@ html {
     transition: all .3s;
     font-size: calc(100vw / 375);
 }
-body{
+
+body {
     transition: all .3s;
+
 }
+
 ul li {
     list-style: none;
     margin: 0;
@@ -27,6 +36,7 @@ ul li {
     color: #fff;
     font-weight: bold;
     border-radius: 50px;
+
 }
 
 h1,
@@ -43,7 +53,7 @@ h6 {
 //     color: #fff;
 // }
 
-#Upbtn{
+#Upbtn {
     position: fixed;
     bottom: 50px;
     right: 50px;
@@ -58,6 +68,12 @@ h6 {
     border-radius: 50%;
     z-index: 99999;
     cursor: pointer;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+        background-color: rgb(255, 139, 139);
+        color: #000;
+    }
 }
 
 .nav {
@@ -69,19 +85,55 @@ h6 {
     transform: translateX(-50%);
     padding: 20px;
     color: #fff;
+    transition: all .3s;
+
+    &.active {
+        background: #000 !important;
+
+        .logo {
+            color: #fff;
+            transition: all .3s;
+        }
+
+        .list {
+            color: #fff;
+        }
+
+        .inpBtn {
+            color: #fff;
+        }
+
+        .tl-List {
+            background-color: #000 !important;
+
+            li {
+                color: #fff !important;
+            }
+        }
+    }
 
     .row {
         // background-color: aqua;
         display: flex;
         align-items: center;
 
+        .tl-List {
+            background-color: #000 !important;
+
+            li {
+                font-size: 16px;
+                font-weight: 500;
+                color: #fff !important;
+            }
+        }
+
         .logo {
             div {
                 font-size: 30px;
-                font-weight: bold;
+                font-weight: 900;
 
                 span {
-                    font-weight: lighter;
+                    font-weight: 100;
                 }
             }
         }
@@ -96,6 +148,8 @@ h6 {
                 li {
                     margin: 0 15px;
                     transition: all .3s;
+                    font-size: 16px;
+                    font-weight: 500;
 
                     &:nth-child(1) {
                         color: #f00;
@@ -122,12 +176,14 @@ h6 {
                     input {
                         padding: 10px 0 10px 20px;
                         width: 100%;
+                        outline:1px solid rgba(204, 204, 204, 0.754);
+                        background-color: transparent;
                         border-top-left-radius: 25px;
                         border-bottom-left-radius: 25px;
-                        background-color: rgba(143, 143, 143, 0.368);
+                        // background-color: rgba(143, 143, 143, 0.368);
 
                         &::placeholder {
-                            color: #fff;
+                            color: rgb(255, 255, 255);
                         }
                     }
                 }
@@ -141,9 +197,13 @@ h6 {
                         color: #fff;
                         width: auto;
                         animation: moveBtn .5s forwards linear;
-                        padding: 10px;
+                        padding: 11px;
                         border-top-right-radius: 25px;
                         border-bottom-right-radius: 25px;
+                        transition: all .3s;
+                        &:hover{
+                                background-color: rgb(240, 214, 136);
+                        }
                     }
 
                     @keyframes moveBtn {
@@ -161,7 +221,11 @@ h6 {
                     }
                 }
 
-                .col-xs-1 {
+                .icon {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+
                     i {
                         font-size: 20px;
                         transition: all .3s;
@@ -224,9 +288,11 @@ h6 {
                 padding: 0;
 
                 span {
-                    background-color: rgba(75, 75, 75, 0.367);
-                    padding: 10px 30px;
+                    background-color: rgb(173 172 172 / 54%);
+                    padding: 15px 42px;
+                    font-size: 18px;
                     border-radius: 50px;
+                    font-weight: 500;
                 }
             }
 
@@ -243,6 +309,7 @@ h6 {
 
                     span {
                         font-weight: lighter;
+                        font-weight: 100;
                     }
                 }
             }
@@ -254,12 +321,16 @@ h6 {
                 padding: 0;
 
                 button {
-                    padding: 10px 30px;
+                    padding: 15px 42px;
                     border-radius: 50px;
                     background-color: #f00;
                     color: #fff;
-                    font-size: 13px;
-                    // font-weight: bold;
+                    font-size: 18px;
+                    transition: all .3s;
+                    font-weight: 500;
+                    &:hover {
+                        .bordered()
+                    }
                 }
             }
         }
@@ -320,11 +391,25 @@ h6 {
 .Services {
     padding: 5em 0;
 
+    &.active {
+        .S-top {
+            h3 {
+                transition: all .3s;
+                color: #fff;
+            }
+        }
+    }
+
     .S-top {
         margin-bottom: 30px;
 
         h3 {
+            font-size: 40px;
+            font-weight: 700;
             text-align: center;
+            span{
+                font-weight: 100;
+            }
         }
     }
 
@@ -390,12 +475,12 @@ h6 {
                         color: #fff;
                         font-size: 20px;
                         font-weight: bold;
-                        margin-bottom: 30px;
+                        margin-bottom: 15px;
                     }
 
                     .content {
                         font-size: 18px;
-                        font-weight: lighter;
+                        font-weight: 400;
                     }
                 }
             }
@@ -407,11 +492,13 @@ h6 {
         margin: 10px 0;
 
         button {
-            padding: 20px 40px;
+            padding: 15px 42px;
             background-color: rgb(255, 23, 23);
             border-radius: 50px;
             transition: all .5s;
             color: #fff;
+            font-size: 15px;
+            font-weight: 700;
 
             &:hover {
                 transition: all .5s;
@@ -425,16 +512,28 @@ h6 {
 .Clients {
     padding: 5em 0;
 
+    &.active {
+        color: #fff;
+
+        .Cli-footer {
+            .footerBox {
+                background-color: #000;
+                box-shadow: 0 10px 50px 0 rgba(235, 235, 235, 0.339);
+
+            }
+        }
+    }
+
     .Cli-top {
         text-align: center;
         margin-bottom: 30px;
 
         .topBox {
             font-size: 40px;
-            font-weight: bold;
+            font-weight: 700;
 
             span {
-                font-weight: lighter;
+                font-weight: 100;
             }
         }
     }
@@ -482,13 +581,13 @@ h6 {
 
             h3 {
                 font-weight: 25px;
-                font-weight: bold;
+                font-weight: 700;
                 margin: 20px 0;
             }
 
             p {
                 font-size: 15px;
-                font-weight: lighter;
+                font-weight: 400;
                 margin: 20px 0;
                 line-height: 25px;
             }
@@ -498,6 +597,8 @@ h6 {
                 margin: 10px 0;
                 padding-bottom: 5px;
                 border-bottom: 2px solid #f00;
+                font-weight: 500;
+                font-size: 15px;
             }
         }
     }
@@ -505,6 +606,7 @@ h6 {
 
 .experience {
     padding: 5em 0;
+    overflow: hidden;
 
     .container {
         display: flex;
@@ -520,7 +622,7 @@ h6 {
             margin-bottom: 25px;
 
             span {
-                font-weight: lighter;
+                font-weight: 100;
             }
         }
 
@@ -538,6 +640,11 @@ h6 {
             border-radius: 50px;
             font-weight: bold;
             margin-top: 25px;
+            transition: all .3s;
+
+            &:hover {
+                .bordered()
+            }
 
         }
     }
@@ -558,13 +665,13 @@ h6 {
             &::after {
                 content: '';
                 position: absolute;
-                top: -20px;
-                right: -20px;
+                top: -15px;
+                right: -15px;
                 z-index: -1;
                 width: 100%;
                 height: 100%;
                 border-radius: 15px;
-                border: 10px solid rgba(110, 110, 110, 0.335);
+                border: 8px solid rgba(110, 110, 110, 0.335);
             }
         }
 
@@ -663,6 +770,9 @@ h6 {
                 font-size: 40px;
                 font-weight: bold;
                 margin: 0 0 20px 0;
+                span{
+                    font-weight: 100;
+                }
             }
 
             p {
@@ -683,6 +793,11 @@ h6 {
                 background-color: rgb(241, 16, 16);
                 color: #fff;
                 text-decoration: none;
+                transition: all .3s;
+
+                &:hover {
+                    .bordered()
+                }
             }
         }
     }
@@ -696,19 +811,32 @@ h6 {
 
             .left {
                 padding: 0;
-                .smLeftBox{
-                    padding: 45px;
+
+                .smLeftBox {
+                    padding: 100px;
+
                     h1 {
                         font-size: 45px;
                         margin-bottom: 20px;
+                        span{
+                            font-weight: 100;
+                        }
                     }
-    
+
                     p {
                         font-size: 14px;
                     }
-    
+
                     .Topa {
                         margin-top: 30px;
+
+                        .Tellbtn {
+                            transition: all .3s;
+
+                            &:hover {
+                                .bordered()
+                            }
+                        }
                     }
                 }
             }
@@ -772,6 +900,7 @@ h6 {
 
                 h3 {
                     font-weight: bold;
+                    font-size: 35px;
                     margin-bottom: 20px;
                 }
 
@@ -786,6 +915,16 @@ h6 {
 .Blog {
     padding: 5em 0;
 
+    &.active {
+        .dataBox {
+            .aBtn {
+                a {
+                    color: #fff !important;
+                }
+            }
+        }
+    }
+
     .title {
         text-align: center;
         margin: 3em 0;
@@ -795,7 +934,7 @@ h6 {
             font-weight: bold;
 
             span {
-                font-weight: lighter;
+                font-weight: 100;
             }
         }
     }
@@ -856,7 +995,9 @@ h6 {
                 margin-bottom: 15px;
 
                 .user {
-                    i {}
+                    i {
+                        color: #f00;
+                    }
 
                     span {}
                 }
@@ -962,10 +1103,11 @@ h6 {
                         font-size: 16px;
 
                         li {
-                            span{
+                            span {
                                 margin-bottom: 15px;
                                 transition: all .5s;
                                 cursor: pointer;
+
                                 &:hover {
                                     color: rgb(223, 33, 33);
                                 }
