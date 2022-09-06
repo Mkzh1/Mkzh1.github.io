@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../Css/loading.css">
 </head>
 <style>
     * {
@@ -49,6 +50,20 @@
 </style>
 
 <body>
+    <div class="loadWindow">
+        <div class="GradualBox">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h1>页面加载中...</h1>
+    </div>
     <div class="newEl"></div>
     <div class="zhezhao">
         <p>游戏结束<br>请点击页面刷新</p>
@@ -56,6 +71,12 @@
     </div>
 </body>
 <script>
+    window.onload = function () {
+        setTimeout(function () {
+            document.querySelector(".loadWindow").style.opacity = "0"
+            document.querySelector(".loadWindow").style.visibility = "hidden"
+        }, 500)
+    }
     var x = 0;
     function $(El) {
         var Dom = document.querySelectorAll(El)
@@ -73,10 +94,10 @@
 
     // }
     //生成亿个图片
-        var music = [1, 2, 3, 4]
-        var musicNum = 0;
-        var imgArr = [1, 2]
-        var Newimgtime = setInterval(function () {
+    var music = [1, 2, 3, 4]
+    var musicNum = 0;
+    var imgArr = [1, 2]
+    var Newimgtime = setInterval(function () {
         var imgNum = Math.floor(Math.random() * imgArr.length)
         var Newimg = document.createElement("img")
         var randimgWidth = Math.floor(Math.random() * 150 + 50)
@@ -114,7 +135,7 @@
         } else {
             var newMusic = document.createElement("audio")
             musicNum++
-            newMusic.src = "./kunkunmusic/ji" +music[musicNum] + ".mp3"
+            newMusic.src = "./kunkunmusic/ji" + music[musicNum] + ".mp3"
             // music[musicNum] 
             var unMusic = music.shift()
             music.push(unMusic)

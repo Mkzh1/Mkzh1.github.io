@@ -6,11 +6,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="./Css/index.css">
+    <link rel="stylesheet" href="./icon/iconfont.css">
+    <link rel="stylesheet" href="./Css/loading.css">
+    <style>
+        a:hover {
+            text-decoration: none;
+        }
+
+        a:active {
+            text-decoration: none;
+            border: 0;
+        }
+
+        .back3:hover {
+            position: relative;
+            z-index: 2;
+            /* overflow: hidden; */
+        }
+
+        .back3::after {
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 0;
+            background-color: rgb(255, 213, 129);
+            width: 0%;
+            height: 100%;
+            transition: all .3s;
+        }
+
+        .back3:hover::after {
+            position: absolute;
+            content: '';
+            height: 100%;
+            width: 100%;
+            left: 0;
+            transition: all .3s;
+            top: 0;
+            z-index: -1;
+            background-color: rgb(255, 213, 129);
+        }
+    </style>
 </head>
 
 <body>
-    <!-- <img style="opacity: 0;" src="http://43.54.215.110/img/122.jpg" alt=""> -->
     <div class="loadWindow">
         <div class="GradualBox">
             <div></div>
@@ -25,47 +68,116 @@
         </div>
         <h1>页面加载中...</h1>
     </div>
-
-    <div class="index">
-        <div class="indexBox">
-            <div>
-                <h3>交互网页</h3>
-                <a href="./Ajax/index.html">漫画</a>
-            </div>
-            <div>
-                <h3>静态网站与响应式网站</h3>
-                <a href="./Bootstrap/B1/index.html">B1</a>
-                <a href="./Bootstrap/B2/fuke2.html">B2</a>
-                <a href="./Bootstrap/Web360/360web.html">360浏览器</a>
-                <a href="./3Dweb/3Dphoto/index.html">3D相册</a>
-            </div>
-            <div>
-                <h3>闲时类</h3>
-                <a href="./Clock/blockClock.html">方块时钟</a>
-                <a href="./Clock/CountDown.html">倒计时时钟</a>
-                <a href="./Musicplay/music.html">音乐播放器</a>
-                <a href="./accordion/index.html">手风琴</a>
-            </div>
-            <div>
-                <h3>游戏类</h3>
-                <a href="./findDifference/index.html">找不同</a>
-                <a href="./luckDraw/index.html">吃什么抽奖</a>
-                <a href="./memoryCard/index.html">记忆卡片</a>
-                <a href="./NotWithe/Nomore/fangkuai.html">别踩白块</a>
-                <a href="./WhackAMole/打地鼠.html">打鲲鲲</a>
+    <div class="Upbtn">
+        <span class="iconfont">&#xe616;</span>
+    </div>
+    <section class="nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-9 title">
+                    Im Work
+                </div>
+                <ul class="col-xs-9 col-lg-9 visible-lg visible-md list">
+                    <li class="nav-li col-xs-2 back3"><a href="#staticWebPage">H5&C3</a></li>
+                    <li class="nav-li col-xs-2 back3"><a href="#Js">Js</a></li>
+                    <li class="nav-li col-xs-2 back3"><a href="#Ajax">Ajax</a></li>
+                    <li class="nav-li col-xs-2 back3"><a href="#parallax">parallax</a></li>
+                    <li class="nav-li col-xs-2 back3"><a href="#Game">Game</a></li>
+                </ul>
+                <a class="btn btn-default visible-lg visible-md" href="#" role="button">Login</a>
+                <div class="col-xs-3 hidden-lg hidden-md x-btn">
+                    <button class="glyphicon glyphicon-menu-hamburger btn ham-btn"></button>
+                </div>
             </div>
         </div>
-
-    </div>
-
-    <script>
-        window.onload = function () {
-            setTimeout(function () {
-                document.querySelector(".loadWindow").style.opacity = "0"
-                document.querySelector(".loadWindow").style.visibility = "hidden"
-            }, 500)
-        }
-    </script>
+    </section>
+    <section class="body">
+        <div class="container">
+            <div class="col-xs-12 staticWebPage">
+                <h3 id="staticWebPage">H5&C3</h3>
+                <ul class="list">
+                    <li class="col-xs-12">
+                        <a href="./Bootstrap/B1/index.html">B1</a>
+                    </li>
+                    <li class="col-xs-12">
+                        <a href="./Bootstrap/B2/fuke2.html">B2</a>
+                    </li>
+                    <li class="col-xs-12">
+                        <a href="./Bootstrap/Web360/360web.html">360浏览器</a>
+                    </li>
+                    <li class="col-xs-12">
+                        <a href="./3Dweb/3Dphoto/index.html">3D相册</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 Dynamic">
+                <h3 id="Js">Js+Jq</h3>
+                <ul>
+                    <li class="col-xs-12"><a href="./Clock/blockClock.html">方块时钟</a></li>
+                    <li class="col-xs-12"><a href="./Clock/CountDown.html">倒计时时钟</a></li>
+                    <li class="col-xs-12"><a href="./Musicplay/music.html">音乐播放器</a></li>
+                    <li class="col-xs-12"><a href="./accordion/index.html">手风琴</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-12 interactive">
+                <h3 id="Ajax">Ajax</h3>
+                <ul>
+                    <li class="col-xs-12"><a href="./Ajax/index.html">漫画</a></li>
+                    <li class="col-xs-12"></li>
+                    <li class="col-xs-12"></li>
+                </ul>
+            </div>
+            <div class="col-xs-12 Effect">
+                <h3 id="parallax">parallax</h3>
+                <ul>
+                    <li class="col-xs-12"></li>
+                    <li class="col-xs-12"></li>
+                    <li class="col-xs-12"></li>
+                </ul>
+            </div>
+            <div class="col-xs-12 smallGame">
+                <h3 id="Game">Game</h3>
+                <ul>
+                    <li class="col-xs-12"><a href="./findDifference/index.html">找不同</a></li>
+                    <li class="col-xs-12"><a href="./luckDraw/index.html">吃什么抽奖</a></li>
+                    <li class="col-xs-12"><a href="./memoryCard/index.html">记忆卡片</a></li>
+                    <li class="col-xs-12"><a href="./WhackAMole/打地鼠.html">打鲲鲲</a></li>
+                    <li class="col-xs-12"><a href="./NotWithe/Nomore/fangkuai.html">别踩白块</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
 </body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    window.onload = function () {
+        setTimeout(function () {
+            document.querySelector(".loadWindow").style.opacity = "0"
+            document.querySelector(".loadWindow").style.visibility = "hidden"
+        }, 500)
+    }
+    function scrollLeftadd() {
+        $("body").append(`<div class="scrollLeft"><div>`)
+        window.onscroll = function () {
+            let stElement = document.documentElement.scrollTop;
+            let boxHeight = $("body").height()
+            let winHeight = window.innerHeight
+            $(".scrollLeft").width(Number.parseInt((stElement / (boxHeight - winHeight)) * 100) + "%")
+            var t = document.documentElement.scrollTop || document.body.scrollTop;
+            t >= 100
+                ? $(".Upbtn").css({ visibility: 'initial', opacity: "1", transform: "translateY(0)" })
+                : $(".Upbtn").css({ visibility: 'hidden', opacity: "0", transform: "translateY(100px)" })
+        }
+    }
+    scrollLeftadd()
+    $(".Upbtn").on({
+        click: function () {
+            $("html").animate({
+                scrollTop: 0
+            }, 400)
+        }
+    })
+</script>
 
 </html>

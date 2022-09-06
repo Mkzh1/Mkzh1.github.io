@@ -6,12 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta Document="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../Css/loading.css">
 </head>
 <style>
     * {
         margin: 0;
         padding: 0;
     }
+
     .list {
         list-style: none;
         display: flex;
@@ -51,11 +53,31 @@
 </style>
 
 <body>
+    <div class="loadWindow">
+        <div class="GradualBox">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h1>页面加载中...</h1>
+    </div>
     <ul class="list">
     </ul>
     <script>
+        window.onload = function () {
+            setTimeout(function () {
+                document.querySelector(".loadWindow").style.opacity = "0"
+                document.querySelector(".loadWindow").style.visibility = "hidden"
+            }, 500)
+        }
         var list = document.querySelector(".list")
-        var memory = [1, 2,3,4,5,6,7,8]
+        var memory = [1, 2, 3, 4, 5, 6, 7, 8]
         double(ran(memory), list)
         function ran(Arr) {
             var arr = []
@@ -97,10 +119,11 @@
                                 }
                                 liPush[0].classList.remove("active")
                                 liPush[1].classList.remove("active")
-                            },500)}
+                            }, 500)
+                    }
                     console.log(liPush)
-                    
-            }
+
+                }
             });
         }
 //每次点击添加一个类名，添加完成在整个盒子查找拥有类名的两个盒子进行判断，判断正确则使两个盒子类名删除并转换，否则使两个盒子类名删除

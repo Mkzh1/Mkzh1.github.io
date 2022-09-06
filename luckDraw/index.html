@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>超级简易抽奖</title>
+    <link rel="stylesheet" href="../../Css/loading.css">
     <style>
         *{
         margin: 0;
@@ -66,6 +67,20 @@
     </style>
 </head>
 <body>
+    <div class="loadWindow">
+        <div class="GradualBox">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h1>页面加载中...</h1>
+    </div>
     <div class="jiangpin"></div>
     <div class="draw">
         <div class="act bt">汤饭</div>
@@ -81,61 +96,18 @@
     </div>
 </body>
     <script>
-        // var btn = document.querySelector(".btn")
-        // var draw = document.querySelector(".draw")
-        // box = 9
-        // var drawBox = [
-        //         [1,1,1],
-        //         [1,0,1],
-        //         [1,1,1]
-        // ]
-        // var q=[]
-        // drawBox.forEach(function (row,rowi) {
-        //     row.forEach(function (item,index,arr) {
-        //         console.log(item,arr)
-        //         // q.push(item)
-        //         if(item){
-        //             var drawitem = document.createElement("div")
-        //             drawitem.classList.add("active")
-        //             draw.appendChild(drawitem)
-        //             // console.log(q)
-        //         }
-        //     })
-        // })
-        // console.log(q)
-        // q.findIndex(function (ww) {
-        //     // if(ww){
-        //         // q[ww]
-        //     // }
-        // })
-
-        // var drawBox = document.createElement("div")
-        // for(var i=0;i<4;i++){
-        //     var drawChild = document.createElement("div")
-        //     drawChild.classList.add("active")
-        //     draw.appendChild(drawBox)
-        //     drawBox.appendChild(drawChild)
-        // }
-
-        // draw.insertBefore(drawBox,btn)
-        // drawitem = draw.querySelectorAll("div");
-        // drawitem.forEach(function () {
-            
-        // });
+        window.onload = function () {
+            setTimeout(function () {
+                document.querySelector(".loadWindow").style.opacity = "0"
+                document.querySelector(".loadWindow").style.visibility = "hidden"
+            }, 500)
+        }
     </script>
     <script>
         var btn = document.querySelector(".btn")
         var draw = document.querySelector(".draw")
         var drawAll = draw.querySelectorAll(".draw div")
         var jiangpin=document.querySelector(".jiangpin")
-        // var lastBox = document.createElement("div")
-        //假设使用for循环出9个盒子，其中第5个盒子添加点击事件，并给予类名btn，其余类名一致active，
-        //当点击类名为btn的盒子的时候，怎么走，通过二维数组排序成一维数组使用findindex查找每个值，当他为ture时
-        //添加一个新的类名 Newact 并且让他的背景颜色加深，未false时不执行，并且点击的同时使用定时器，时间为一个随机数（不低于6秒）
-        //在定时器里遍历当前数组中的每一个值，当判断找到ture时为他添加一个类名，在其中又使用延迟
-        //已知方法还有索引使盒子走方块形状，或者使用随机数在num设置，并且不超过当前盒子数量就可以达成目的
-        //01258763
-        // drawAll
         var num = 0
         var spend = 100
         function start() {
@@ -179,57 +151,5 @@
             },spend*5+newTimes)
         }
         btn.onclick = start
-
-
-    </script>
-    <script>
-        //不成功案例
-          // for (var  i= 0;  i< 9; i++) {
-        //     var box = document.createElement("div")
-        //     box.classList.add("active")
-        //     draw.appendChild(box)
-        // }
-        // console.log();
-        // // draw
-        // draw.querySelectorAll(".active").forEach(function (ele) {
-        //     var btn = ele[4]
-        //     // console.log(ele)
-        //     // ele[4].replaceChild(,btn)
-        // })
-               // function (){
-        //     clearInterval(timeGo)
-        //     var timeGo=setInterval(function () {
-        //      // clearTime(timeGo)
-        //          drawAll[num].classList.add("act")
-        //          setTimeout(function () {
-        //              drawAll[num].classList.remove("act")
-        //              num++
-        //              console.log(num)
-        //              if(num>=drawAll.length){
-        //                  num=0
-        //                  console.log("重制")
-        //              }
-        //          },500)
-        //      },1000)
-        // }
-
-        //    btn.onclick = function () {
-
-//             }
-
-// var ranTime = '';
-//             ranTime = parseInt(Math.random() * 15)
-//             // console.log(ranTime)
-//                 if(ranTime>=5 && ranTime !== ""){
-//                     // console.log(ranTime)
-//                     var newTime=ranTime
-//                     newTimes = newTime*360
-//                     console.log(newTimes)
-//                 }else{
-//                     var newTime=ranTime
-//                     newTimes = newTime*360
-//                     ranTime = Math.ceil(Math.random() * 10)
-//                 }
-//             console.log(newTimes)
     </script>
 </html>

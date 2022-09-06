@@ -1,119 +1,117 @@
-html{
-    font-size: calc(100vw / 375);
-}
-*{
+* {
     margin: 0;
+    padding: 0;
+    border: 0;
 }
-// body{
-//     background-color: aquamarine;
-// }
-.loadWindow{
-    width: 100%;
-    height: 100%;
-    position:absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+html{
+    font-size: calc(100vw/375);
     transition: all .3s;
+}
+ul li,
+ol li {
+    list-style: none;
+}
+
+
+
+.scrollLeft {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* width: 0%; */
+    height: 3px;
+    background-color: rgb(160, 121, 43);
+    z-index: 99999;
+}
+
+.Upbtn {
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    width: 50px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: aliceblue;
-    z-index: 999999;
-    /* opacity: 1; */
-}
-.GradualBox {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    flex-wrap: wrap;
-}
-.loadWindow h1{
-    /* width: 100vw; */
-    font-size: 5rem;
-    text-align: center;
-    color: black;
-}
-.GradualBox div {
-    width: 33.33%;
-    height: 33.33%;
-    background-color: rgb(98, 162, 218);
-    animation: GradualBox 1s infinite;
-    /* transform-origin:right top; */
-    
-}
+    height: 50px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: rgb(212, 191, 151);
+    transition: all .3s;
+    opacity: 0;
+    visibility: hidden;
 
-.GradualBox div:nth-child(1) {
-    animation-delay: 0.3s;
-}
-
-.GradualBox div:nth-child(2) {
-    animation-delay: 0.5s;
-}
-
-.GradualBox div:nth-child(3) {
-    animation-delay: 0.6s;
-}
-
-.GradualBox div:nth-child(4) {
-    animation-delay: 0.2s;
-}
-
-.GradualBox div:nth-child(5) {
-    animation-delay: 0.3s;
-}
-
-.GradualBox div:nth-child(6) {
-    animation-delay: 0.5s;
-}
-
-.GradualBox div:nth-child(7) {
-    animation-delay: 0s;
-}
-
-.GradualBox div:nth-child(8) {
-    animation-delay: 0.2s;
-}
-
-.GradualBox div:nth-child(9) {
-    animation-delay: 0.3s;
-}
-
-@keyframes GradualBox {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(0);
-    }
-
-    100% {
-        transform: scale(1);
+    span {
+        font-size: 25px;
     }
 }
-.index{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    .indexBox{
-        width: 500px;
-        height: 500px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: aquamarine;
-        >div{
-            text-align: center;
-            h3{
-                font-size: 20px;
+
+.nav {
+    padding: 2em 0;
+
+    .container {
+        .row {
+            display: flex;
+            align-items: center;
+
+            .title {
+                font-size: 25px;
+            }
+
+            .list {
+                margin-bottom: 0;
+
+                li {
+                    font-size: 16px;
+                    text-align: center;
+                    cursor: pointer;
+                    position: relative;
+                    // background-color: rgb(204, 204, 204);
+                    margin-right: 10px;
+
+                    &.back3 {
+                        &:hover {
+                            a {
+                                transition: all .3s;
+                                color: #fff;
+                            }
+                        }
+
+                        a {
+                            transition: all .3s;
+                            color: rgb(0, 0, 0);
+                            border: 0;
+                        }
+
+                        /* overflow: hidden; */
+                    }
+                }
+            }
+
+            >.btn {
+                font-size: 18px;
+                border: 2px solid #2cacc4;
+            }
+
+            button {
+                // display: none;
             }
         }
-        a{
-            font-size: 20px;
+    }
+}
+
+.body {
+    width: 100%;
+    background-color: rgb(255, 213, 129);
+
+    .container {
+        >div {
+            padding: 0;
+            ul>li{
+                background-color: antiquewhite;
+                border-radius: 10px;
+                margin: 10px 0;
+                padding: 20px;
+            }
         }
     }
 }

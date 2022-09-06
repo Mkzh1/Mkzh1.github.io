@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../Css/loading.css">
     <style>
         .back {
             width: 500px;
@@ -21,29 +22,49 @@
             flex-wrap: wrap;
             border-radius: 50%;
         }
-    .title{
-        width: 200px;
-        text-align: center;
-        padding: 20px;
-        background-color: aliceblue;
-        margin: 0 auto;
-    }
+
+        .title {
+            width: 200px;
+            text-align: center;
+            padding: 20px;
+            background-color: aliceblue;
+            margin: 0 auto;
+        }
     </style>
 </head>
 
 <body>
+    <div class="loadWindow">
+        <div class="GradualBox">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h1>页面加载中...</h1>
+    </div>
     <div class="title"></div>
     <div class="back"></div>
     <script>
-
+        window.onload = function () {
+            setTimeout(function () {
+                document.querySelector(".loadWindow").style.opacity = "0"
+                document.querySelector(".loadWindow").style.visibility = "hidden"
+            }, 500)
+        }
         var back = document.querySelector(".back")
         var backwidth = back.offsetWidth
         var level = 1;
         var title = document.querySelector('.title')
         levelUp(level)
         function levelUp(level) {
-            title.innerText = "当前关卡是第"+level+"关"
-            
+            title.innerText = "当前关卡是第" + level + "关"
+
             var ran = "#" + Math.random().toString(16).slice(-6)
             console.log(ran)
             for (var i = 0; i < Math.pow(level + 2, 2); i++) {
@@ -61,7 +82,7 @@
                 level++
                 back.innerHTML = " "
                 levelUp(level)
-                
+
                 // console.log(ranBox)
                 // AllBack[ranBox].innerText= "123"
             }
