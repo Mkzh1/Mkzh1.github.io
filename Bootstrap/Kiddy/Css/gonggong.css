@@ -1,0 +1,102 @@
+/* cykxmyt 0.076 2020.05.10 23:50:07 字数 47 阅读 702 前端同鞋在写ui给的页面过程中，有的场景可能会受html标签默认样式影响，所以有些时候需要去掉默认样式 html, */
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* font: 14px "\5b8b\4f53", sans-serif; */
+    background: #f9f9f9;
+    height: 100%;
+}
+
+img {
+    border: none;
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+}
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+
+/* link */
+a {
+    color: #333;
+    text-decoration: none;
+    /* blr: expression(this.onFocus=this.blur()); */
+}
+
+a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: none;
+}
+
+/* clearfix */
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}

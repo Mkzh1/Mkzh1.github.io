@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            transform-style: preserve-3d;
+            perspective: 800px;
+        }
+
+        .seeBox {
+            /* transform: rotateY(45deg); */
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            bottom: 0;
+            left: 0;
+            background-position: center bottom;
+            background-size: cover;
+            background-repeat: no-repeat;
+            perspective: 500px;
+            transform-style: preserve-3d;
+            background-image: linear-gradient(rgb(255, 153, 120), rgba(193, 193, 193, 0.3));
+        }
+
+        .seeBox .child {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            left: 0;
+            background-position: center bottom;
+            background-position: 75%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: all .3s linear;
+        }
+
+        .seeBox .child:nth-child(1) {
+            background-image: url(./image/lay2.svg);
+        }
+
+        .seeBox .child:nth-child(2) {
+            transform: translateZ(60px);
+            background-image: url(./image/lay3.svg);
+
+        }
+
+        .seeBox .child:nth-child(3) {
+            transform: translateZ(70px);
+            bottom: 35px;
+            background-image: url(./image/lay4.svg);
+
+        }
+
+        .seeBox .child:nth-child(4) {
+            transform: translateZ(80px);
+            bottom: 40px;
+            background-image: url(./image/lay5.svg);
+
+        }
+
+        .seeBox .child:nth-child(5) {
+            transform: translateZ(90px);
+            bottom: 45px;
+            background-image: url(./image/lay6.svg);
+
+        }
+
+        .seeBox .child:nth-child(6) {
+            transform: translateZ(100px);
+
+            bottom: 50px;
+            background-image: url(./image/lay7.svg);
+
+        }
+
+        .seeBox .child:nth-child(7) {
+            transform: translateZ(120px);
+            bottom: 60px;
+            background-image: url(./image/lay8.svg);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="seeBox">
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+    </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("body").on("mousemove", function (event) {
+        let mouseValue = event.pageX;
+        let boxWidth = $("body").width();
+        let leftValue = (mouseValue / boxWidth).toFixed(2) ;
+        $(".seeBox")
+            .find(".child")
+            .eq(1).css({ "transform": "translateZ(30px) translateX(" + 30 * leftValue + "px)" })
+            .end().eq(2).css({ "transform": "translateZ(60px) translateX(" + 50 * leftValue + "px)" })
+            .end().eq(3).css({ "transform": "translateZ(70px) translateX(" + 60 * leftValue + "px)" })
+            .end().eq(4).css({ "transform": "translateZ(80px) translateX(" + 90 * leftValue + "px)" })
+            .end().eq(5).css({ "transform": "translateZ(90px) translateX(" + 120 * leftValue + "px)" })
+            .end().eq(6).css({ "transform": "translateZ(100px) translateX(" + 150 * leftValue + "px)" })
+            .end().eq(7).css({ "transform": "translateZ(120px) translateX(" + 180 * leftValue + "px)" });
+    })
+    $("body").on("mouseleave",function(){
+        $(".seeBox")
+            .find(".child")
+            .eq(1).css({ "transform": "translateZ(30px) " })
+            .end().eq(2).css({ "transform": "translateZ(60px) " })
+            .end().eq(3).css({ "transform": "translateZ(70px) " })
+            .end().eq(4).css({ "transform": "translateZ(80px) " })
+            .end().eq(5).css({ "transform": "translateZ(90px) " })
+            .end().eq(6).css({ "transform": "translateZ(100px) " })
+            .end().eq(7).css({ "transform": "translateZ(120px) " });
+    })
+</script>
+
+</html>

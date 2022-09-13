@@ -3,10 +3,29 @@
     padding: 0;
     border: 0;
 }
-html{
+
+html {
     font-size: calc(100vw/375);
     transition: all .3s;
 }
+
+body {
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 100vh;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: rgb(160, 121, 43);
+    }
+
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: #ffffff;
+    }
+}
+
 ul li,
 ol li {
     list-style: none;
@@ -106,7 +125,8 @@ ol li {
     .container {
         >div {
             padding: 0;
-            ul>li{
+
+            ul>li {
                 background-color: antiquewhite;
                 border-radius: 10px;
                 margin: 10px 0;

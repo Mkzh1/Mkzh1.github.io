@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../Css/loading.css">
+</head>
+<style>
+    .eveBig {
+        display: flex;
+        justify-content: center;
+    }
+
+    .eveBig span {
+        font-size: 50px;
+        display: flex;
+        margin: 0 20px;
+        align-items: center;
+    }
+
+    .eve,
+    .cen {
+        display: flex;
+    }
+
+    .diamond {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100px;
+        /* background-color: aliceblue; */
+    }
+
+    .diamond i {
+        width: 30%;
+        height: 30px;
+        box-shadow: 0 0 2px 0 rgb(0, 0, 0);
+        transition: all .3s;
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    .diamond i.active {
+        background-color: rgb(151, 206, 255);
+        opacity: 1;
+        transition: all .3s;
+        transform: scale(1);
+
+    }
+</style>
+
+<body>
+    <div class="loadWindow">
+        <div class="GradualBox">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h1>页面加载中...</h1>
+    </div>
+    <div class="eveBig">
+        <div class="eveH cen">
+            <div class="diamondhT diamond"></div>
+            <div class="diamondhG diamond"></div>
+        </div>
+        <span>:</span>
+        <div class="eveM cen">
+            <div class="diamondmT diamond"></div>
+            <div class="diamondmG diamond"></div>
+        </div>
+        <span>:</span>
+        <div class="eveS cen">
+            <div class="diamondST diamond"></div>
+            <div class="diamondSG diamond"></div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            setTimeout(function () {
+                document.querySelector(".loadWindow").style.opacity = "0"
+                document.querySelector(".loadWindow").style.visibility = "hidden"
+            }, 500)
+        }
+        var nums = [
+            [
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 0, 1],
+                [1, 0, 1],
+                [1, 1, 1]
+            ],
+            [
+                [0, 0, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+                [0, 0, 1]
+            ],
+            [
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1],
+                [1, 0, 0],
+                [1, 1, 1]
+            ],
+            [
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1]
+            ],
+            [
+                [1, 0, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+                [0, 0, 1],
+                [0, 0, 1]
+            ],
+            [
+                [1, 1, 1],
+                [1, 0, 0],
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1]
+            ],
+            [
+                [1, 1, 1],
+                [1, 0, 0],
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 1, 1]
+            ],
+            [
+                [1, 1, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+                [0, 0, 1]
+            ],
+            [
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 1, 1]
+            ],
+            [
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1]
+            ]
+        ]
+        var eveH = document.querySelectorAll(".eveH div")
+        var eveM = document.querySelectorAll(".eveM div")
+        var eveS = document.querySelectorAll(".eveS div")
+
+        var diamondhT = document.querySelector(".diamondhT")
+        var diamondhG = document.querySelector(".diamondhG")
+        nums[0].forEach(function (Num, Numi) {
+            Num.forEach(function (item, coli) {
+                var itemI = document.createElement('i')
+                if (item) {
+                    itemI.classList.add('active')
+                }
+                diamondhT.appendChild(itemI)
+            })
+        })
+        nums[0].forEach(function (Num, Numi) {
+            Num.forEach(function (item, coli) {
+                var itemI = document.createElement('i')
+                // console.log(item)
+                if (item) {
+
+                    itemI.classList.add('active')
+                }
+                diamondhG.appendChild(itemI)
+            })
+        })
+
+        var diamondmT = document.querySelector(".diamondmT")
+        var diamondmG = document.querySelector(".diamondmG")
+        nums[0].forEach(function (Num, Numi) {
+            Num.forEach(function (item, coli) {
+                var itemI = document.createElement('i')
+                if (item) {
+                    itemI.classList.add('active')
+                }
+                diamondmT.appendChild(itemI)
+            })
+        })
+        nums[0].forEach(function (Num, Numi) {
+            Num.forEach(function (item, coli) {
+                var itemI = document.createElement('i')
+                // console.log(item)
+                if (item) {
+
+                    itemI.classList.add('active')
+                }
+                diamondmG.appendChild(itemI)
+            })
+        })
+
+
+        var diamondST = document.querySelector(".diamondST")
+        var diamondSG = document.querySelector(".diamondSG")
+        nums[0].forEach(function (Num, Numi) {
+            Num.forEach(function (item, coli) {
+                var itemI = document.createElement('i')
+                if (item) {
+                    itemI.classList.add('active')
+                }
+                diamondST.appendChild(itemI)
+            })
+        })
+        nums[0].forEach(function (Num, Numi) {
+            Num.forEach(function (item, coli) {
+                var itemI = document.createElement('i')
+                // console.log(item)
+                if (item) {
+
+                    itemI.classList.add('active')
+                }
+                diamondSG.appendChild(itemI)
+            })
+        })
+
+
+        function moveNum(move, n, Num) {
+            Num[n].forEach(function (N, Numi) {
+                N.forEach(function (item, coli) {
+                    var itemI = document.createElement('i')
+                    if (item) {
+                        move[Numi * 3 + coli].classList.add('active')
+                    } else {
+                        move[Numi * 3 + coli].classList.remove('active')
+                    }
+                })
+            })
+        }
+
+        setInterval(function () {
+            var now = new Date();
+            var Hour = String(now.getHours()).padStart(2, "0")
+            var Min = String(now.getMinutes()).padStart(2, "0")
+            var Sec = String(now.getSeconds()).padStart(2, "0")
+            eveS.forEach(function (sEle, sI) {
+                var moveI = (sEle.querySelectorAll('i'))
+                moveNum(moveI, Sec[sI], nums)
+            })
+            eveM.forEach(function (sEle, sI) {
+                var moveI = (sEle.querySelectorAll('i'))
+                moveNum(moveI, Min[sI], nums)
+            })
+            eveH.forEach(function (sEle, sI) {
+                var moveI = (sEle.querySelectorAll('i'))
+                moveNum(moveI, Hour[sI], nums)
+            }
+            )
+        }, 1000)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow-x: hidden;
+            background-color: black;
+            height: 200vh;
+        }
+
+        .liziBox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+        }
+
+        .lizi {
+            pointer-events: none;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .lizi::before {
+            content: "";
+            z-index: 99;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            border-radius: 50%;
+            height: 100%;
+            animation: liziMove 1s linear infinite;
+        }
+
+        @keyframes liziMove {
+            0% {
+                transform: translate(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(100px);
+                opacity: 0;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="liziBox"></div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    // $("body").append("<span></span>")
+    function liziMoveFunc(El){
+        document.body.onmousemove = function (event) {
+            console.log(event.pageX);
+            let { random } = Math;
+            let liziEl = document.createElement("span");
+            $(liziEl).addClass("lizi");
+            $(liziEl).css({ "width": random() * 10 + 4, "height": random() * 10 + 4 });
+            liziEl.style.top = event.pageY - (liziEl.offsetHeight / 2) + "px";
+            liziEl.style.left = event.pageX - (liziEl.offsetWidth / 2) + "px";
+            $(El).append(liziEl);
+            let transformValue = random() * 360;
+            liziEl.style.transform = "rotate(" + transformValue + "deg)";
+            setTimeout(() => {
+                $(El)[0].removeChild(liziEl);
+            }, 1000);
+        };
+    
+        document.body.onclick = function (event) {
+            console.log(event.pageX);
+            let { random } = Math;
+            for (let i = 0; i < parseInt(random() * 50 + 20); i++) {
+                let liziEl = document.createElement("span");
+                $(liziEl).addClass("lizi");
+                $(liziEl).css({ "width": random() * 10, "height": random() * 10 });
+                liziEl.style.top = event.pageY - (liziEl.offsetHeight / 2) + "px";
+                liziEl.style.left = event.pageX - (liziEl.offsetWidth / 2) + "px";
+                $(El).append(liziEl);
+                let transformValue = random() * 360;
+                liziEl.style.transform = "rotate(" + transformValue + "deg)";
+                setTimeout(() => {
+                    $(El)[0].removeChild(liziEl);
+                }, 1000);
+            }
+        }
+    }
+    liziMoveFunc(".liziBox")
+</script>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            overflow-x: hidden;
+            height: 200vh;
+        }
+        /*雨落*/
+        .rain {
+            top: 0;
+            left: 0;
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            /* background-color: rgba(250, 235, 215, 0.425); */
+            overflow: hidden;
+        }
+
+        .rainEl {
+            width: 3px;
+            height: 20px;
+            background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.392));
+            position: absolute;
+            pointer-events: none;
+        }
+
+        /*进度条*/
+        .scrollLeft {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background-color: rgba(0, 0, 0, 0.569);
+        }
+
+        /*lizi*/
+        .liziBox {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+        }
+
+        .lizi {
+            pointer-events: none;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .lizi::before {
+            content: "";
+            z-index: 99;
+            background-color: rgb(0, 0, 0);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            border-radius: 50%;
+            height: 100%;
+            animation: liziMove 1s linear infinite;
+        }
+
+        @keyframes liziMove {
+            0% {
+                transform: translate(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(100px);
+                opacity: 0;
+
+            }
+        }
+
+        .cont {
+            height: 200vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cont"></div>
+    <div class="rain"></div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    //进度条
+    function scrollLeftadd() {
+        $("body").append(`<div class="scrollLeft"><div>`);
+        window.onscroll = function () {
+            let stElement = document.documentElement.scrollTop;
+            let boxHeight = $("body").height();
+            let winHeight = window.innerHeight;
+            $(".scrollLeft").width(Number.parseInt((stElement / (boxHeight - winHeight)) * 100) + "%");
+        };
+    }
+    scrollLeftadd();
+    //雨落
+    function rain(El, open = true) {
+        let rain = $(El);
+        let elWidth = rain.width();
+        let elHeight = rain.height();
+        let rainSetint;
+        window.resize = function () {
+            elWidth = rain.clientWidth;
+            elHeight = rain.clientHeight;
+        };
+        let { random } = Math;
+        function rainMoveTime() {
+            rainSetint = setInterval(function () {
+                let rainEl = document.createElement("div");
+                rainEl.style.top = 0;
+                $(rainEl).addClass("rainEl").css({ "left": random() * elWidth + "px", opacity: random });
+                rain.append($(rainEl));
+                let rainMove = 1;
+                const rainTimer = setInterval(function () {
+                    if (parseInt($(rainEl).css("top")) > elHeight) {
+                        clearInterval(rainTimer);
+                        rain[0].removeChild(rainEl);
+                    }
+                    rainMove++;
+                    rainEl.style.top = parseInt(rainEl.style.top) + rainMove + "px";
+                }, 20);
+            }, 50);
+        }
+        if (open) {
+            clearInterval(rainSetint);
+            rainMoveTime();
+        } else {
+            clearInterval(rainSetint);
+        }
+    }
+    rain(".rain");
+</script>
+
+</html>
