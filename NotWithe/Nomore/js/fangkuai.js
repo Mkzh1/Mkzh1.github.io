@@ -5,6 +5,7 @@ var again = document.querySelector('.shade .btn')
 var open = document.querySelector('.open')
 var zsBtn = document.querySelector('.stage .zhushi')
 var openBtn = document.querySelector('.open .btn')
+let gameStop = document.querySelector(".gamePass")
 var passOS = document.querySelectorAll(".pass i")
 var fenshu = 0;
 var speed = 0.01;
@@ -29,6 +30,7 @@ var music = [
         13, 21, 22, 23, 21, 23, 23, 22, 21, 17, 16, 16, 15, 16, 17, 21, 23, 22, 21, 23,
     ],
 ];
+gameStop.style.display="none"
 sorce.style.display = "none"
 var puzi = music[Math.floor(Math.random() * music.length)]
 var Chunk = function (y) {
@@ -62,6 +64,7 @@ var Chunk = function (y) {
             else if (fenshu === 1) {
                 yunxing()
             }
+
             var musicPuzi = document.createElement("audio")
             musicPuzi.src = "./music/sound_" + _this.music + ".mp3"
             musicPuzi.play()
@@ -101,6 +104,9 @@ function yunxing() {
             console.log("离开空间1")
             shade.style.display = "flex"
             clearInterval(setMove)
+            passOS[1].style.display = "none";
+            passOS[0].style.display = "none";
+            
         }
         if (ChunkArr[ChunkArr.length - 1].y >= 0) {
             var lastChunk = new Chunk(-1)
@@ -122,17 +128,21 @@ function yunxing() {
             if (fenshu > 0) {
                 shade.style.display = 'flex'
                 clearInterval(setMove)
+                passOS[1].style.display = "none";
+                passOS[0].style.display = "none";
             }
         }
         passOS[0].onclick = function () {
             passOS[1].style.display = "block";
             passOS[0].style.display = "none";
+            gameStop.style.display="none"
             clearInterval(setMove)
             yunxing()
         }
         passOS[1].onclick = function () {
             passOS[1].style.display = "none";
             passOS[0].style.display = "block";
+            gameStop.style.display="flex"
             clearInterval(setMove)
     
         }
@@ -156,5 +166,4 @@ zsBtn.onclick = function () {
     }, 100)
     // yunxing()
     zsBtn.style.opacity = 0
-
 }
